@@ -1,0 +1,121 @@
+.react-multi-carousel-list {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: -3px !important;
+}
+
+.react-multi-carousel-item--active {
+  color: black !important;
+  /* transform: scale(1.08);
+  cursor: pointer; */
+}
+.react-multiple-carousel__arrow--left {
+  left: 1px !important;
+  padding-right: 7px;
+}
+.react-multiple-carousel__arrow {
+  position: absolute;
+  outline: 0;
+  transition: all 0.5s;
+  border-radius: 100px;
+  z-index: 1000;
+  border: 0;
+  background: white !important;
+  min-width: 27px;
+  min-height: 27px;
+  opacity: 1;
+  cursor: pointer;
+  color: black !important;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+}
+
+.react-multiple-carousel__arrow--right {
+  right: 1px !important;
+  padding-left: 7px;
+}
+
+.react-multi-carousel-track {
+  list-style: none;
+  padding: 0;
+  padding-right: -4px !important;
+  padding-left: -4px !important;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, transition;
+}
+
+.react-multiple-carousel__arrow::before {
+  font-size: 14px;
+  color: #151414;
+  display: block;
+  font-family: revicons;
+  /* text-align: center; */
+  z-index: 2;
+  position: relative;
+}
+
+.review_comment_text_box {
+  min-height: 11vh !important;
+  max-height: 90px !important;
+}
+
+.react-multiple-carousel__arrow :hover {
+  position: absolute;
+  outline: 0;
+  transition: all 0.5s;
+  border-radius: 100px;
+  z-index: 1000;
+  border: 0;
+  background: rgb(158, 156, 156) !important;
+  min-width: 27px;
+  min-height: 27px;
+  opacity: 1;
+  cursor: pointer;
+  color: rgb(218, 20, 20) !important;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 768px) {
+  .review_comment_text_box {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (min-width: 1020px) {
+  .review_comment_text_box {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+}
+
+/* @media (min-width: 1440px) {
+  .review_comment_text_box {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+} */
+
+@media screen and (min-width: 1732px) {
+  .review_comment_text_box {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+  }
+}

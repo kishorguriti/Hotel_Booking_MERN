@@ -1,0 +1,60 @@
+/* .css-1meftwi-MuiDrawer-docked .MuiDrawer-paper {
+    box-sizing: border-box;
+    width: 240px;
+    margin-top: 174px;
+} */
+
+.side_nav {
+    flex: 1;
+    background-color: rgb(252, 250, 250);
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: static;
+    padding: 20px;
+    border: 2px solid goldenrod;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-left: 0px;
+}
+
+.out_let {
+    flex: 8;
+    /* background-color: grey; */
+    height: 85vh;
+    overflow-y: scroll;
+    padding: 40px;
+}
+
+.booking {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.list_item {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Roboto";
+    color: #003580;
+    margin-top: 24px;
+    width: 120%;
+    min-height: 30px;
+
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+
+.list_item:hover {
+    cursor: pointer;
+    background-color: #dee9fa;
+
+}
+
+.list_item:active {
+    cursor: pointer;
+    background-color: goldenrod;
+
+}

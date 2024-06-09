@@ -1,0 +1,48 @@
+.card-style {
+  height: 230px;
+  background-image: url("https://media.istockphoto.com/id/519330110/photo/taj-mahal-agra-india-monument-of-love-in-blue-sky.jpg?s=2048x2048&w=is&k=20&c=IvXaJ9sZ6DWp3wwnK_j-k_eyaL_Lu61ym1Ejm-T7IaM=");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.card-style2 {
+  height: 230px;
+  background-image: url("https://i.pinimg.com/originals/cf/28/98/cf2898747a6d6a65170b724b5ee9755f.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.card-style3 {
+  height: 230px;
+  background-image: url("https://media.istockphoto.com/id/471170455/photo/hi-tec-city-building.jpg?b=1&s=612x612&w=0&k=20&c=l5xD_jBRbsP3XPnsWGY0TPIBQ9uPeZkOR48ZLbKxMgk=");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.city-name {
+  margin-left: 12px;
+  color: white;
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+.property-style {
+  margin-left: 12px;
+  color: white;
+  font-size: 22px;
+}

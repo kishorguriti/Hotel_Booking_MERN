@@ -1,0 +1,83 @@
+/* .footer-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #003580;
+    height: 35vh;
+   
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 40vh;
+    padding: auto;
+}
+
+ul li {
+    list-style: none;
+    color: #003580;
+    cursor: pointer;
+
+}
+
+ul li:hover {
+    color: blue
+}
+
+
+
+.follow {
+    color: #003580;
+    
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+ */
+
+/* ------------------------------- After Moification --------------------------- */
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #003580;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35px;
+  padding: 35px;
+  max-height: 48vh;
+}
+
+.footer-list_item_container {
+  margin-top: 20px;
+}
+
+ul li {
+  list-style: none;
+  color: #003580;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+ul li:hover {
+  color: rgb(244, 198, 82);
+}
+.follow {
+  color: #003580;
+
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media (max-width: 576px) {
+  ul li {
+    font-size: 12px;
+  }
+}

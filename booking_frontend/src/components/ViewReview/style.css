@@ -1,0 +1,6 @@
+@media (max-width: 540px) {
+  #review_content_style {
+    display: flex;
+    flex-direction: column;
+  }
+}

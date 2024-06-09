@@ -1,0 +1,12 @@
+#dialogContent_alignment {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 575px) {
+  #dialogContent_alignment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

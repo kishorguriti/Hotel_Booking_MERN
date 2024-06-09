@@ -1,0 +1,60 @@
+.card_style {
+  position: absolute;
+  top: 45px;
+  right: 10%;
+  height: max-content;
+  /* width: calc(max-content+ 30px); */
+  width: max-content;
+  min-width: 200px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px grey;
+  z-index: 2;
+  border-radius: 6px;
+  padding: 10px 20px 10px 20px;
+}
+
+@media (min-width: 2000px) {
+  .card_style {
+    /* display: none; */
+    position: absolute;
+    top: 45px;
+    right: 25%;
+    height: max-content;
+    /* width: calc(max-content+ 30px); */
+    width: max-content;
+    min-width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px grey;
+    z-index: 2;
+    border-radius: 6px;
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card_style {
+    display: none !important;
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    height: max-content;
+    /* width: calc(max-content+ 30px); */
+    width: max-content;
+    min-width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px grey;
+    z-index: 2;
+    border-radius: 6px;
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+.profie_card_list_item {
+  padding: 5px 20px 5px 20px;
+}
+
+.profie_card_list_item:hover {
+  background-color: #f2f2f2;
+  display: flex;
+  width: "100%";
+}

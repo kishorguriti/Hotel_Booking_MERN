@@ -1,0 +1,17 @@
+.map-container {
+   width: 100% !important; 
+  height: 500px;
+  display: flex;
+  justify-content: center;
+} 
+
+/* @media (max-width: 576px) {
+  .map-container {
+    width: 74% !important;
+    height: max-content !important;
+    margin: auto;
+    display: flex;
+  justify-content: center;
+  
+}
+} */

@@ -1,0 +1,54 @@
+/* .property-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.property-image {
+  height: 200px;
+  width: 200px;
+  border-radius: 15px;
+}
+
+.property-name-style {
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.onhover:hover {
+  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 767px) {
+  .property-image {
+    height: 200px;
+    width: 250px;
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media only screen and (min-width: 1200px) {
+} */
+/* -------------------------------------------------------------- after modify-------------------- */
+
+.property_img_style {
+ height: 230px; 
+  width: 100%;
+  object-fit: cover;
+}
+/* 
+.property_list_img_container {
+  height: auto;
+} */
+
+.property_img_style:hover{
+  transition: transform 0.3s ease;
+    transform: scale(1.02);
+    cursor: pointer;
+}

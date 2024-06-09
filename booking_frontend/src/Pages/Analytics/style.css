@@ -1,0 +1,18 @@
+.radio_btn_container {
+  display: "flex";
+  justify-content: center;
+  align-items: center;
+}
+
+.radio_btn_label {
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.compare_enable_container {
+  display: "flex" !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 24px;
+}

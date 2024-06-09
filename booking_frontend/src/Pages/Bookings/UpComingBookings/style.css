@@ -1,0 +1,11 @@
+.cancell {
+  border: none;
+  background-color: rgb(247, 80, 80);
+
+  color: white;
+  border-radius: 4px;
+}
+
+.cancell:hover {
+  background-color: rgb(246, 36, 36);
+}

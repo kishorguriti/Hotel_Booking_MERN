@@ -1,0 +1,140 @@
+.hotel_card_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: max-content;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.hotel_image_container {
+  flex: 2;
+  position: relative;
+ 
+}
+
+.hotel_details_container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.buttons_container {
+  margin-top: 10px;
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;
+}
+
+.card_button {
+  width: 50%;
+}
+
+.hotel_card_img {
+  height: 100% !important;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.hotel_card_img:hover{
+  transform: scale(1.02);
+
+}
+.card {
+  height: max-content;
+  margin-top: 24px;
+  background-color: #f0f6ff;
+  border-color: #a3d7fc;
+}
+
+.card:hover {
+    box-shadow: 0 0 8px #a3d7fc;
+}
+
+.icon-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  stroke: white;
+}
+
+.icon-fav:hover {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.feedback {
+  border: none;
+  background-color: goldenrod;
+  color: black;
+  border-radius: 4px;
+}
+
+.feedback:hover {
+  background-color: gold;
+}
+
+.view_details {
+  border: none;
+  background-color: #1e4276;
+  color: white;
+  border-radius: 4px;
+}
+
+.view_details:hover {
+  background-color: #1c67d1;
+}
+
+.fav_loader {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+@media (max-width: 500px) {
+  .hotel_card_container {
+    display: block;
+    gap: 10px;
+  }
+
+  .hotel_image_container {
+    text-align: center;
+  }
+
+  .hotel_details_container {
+    height: max-content;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .card {
+    min-height: max-content;
+    margin-top: 24px;
+    background-color: #f0f6ff;
+  }
+
+  .hotel_card_img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .buttons_container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card_button {
+    width: 100%;
+  }
+}

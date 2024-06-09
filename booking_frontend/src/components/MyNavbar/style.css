@@ -1,0 +1,21 @@
+.mynav {
+  background-color: #003580;
+  height: 50px;
+  position: relative;
+}
+
+.navbar-nav .nav-link.active {
+  color: white !important;
+}
+
+/* .user_account {
+    display: none;
+    background-color: red;
+    width: "200px";
+    height: max-content;
+}
+
+.nav-link:hover>div {
+    position: absolute;
+    display: block;
+} */
