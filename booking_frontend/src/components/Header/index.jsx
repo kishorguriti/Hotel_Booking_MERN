@@ -182,6 +182,7 @@ const Header = ({ type }) => {
                 steps={steps}
                 hideCloseButton
                 scrollToFirstStep
+                spotlightPadding={5}
                 showSkipButton
                 showProgress
                 disableOverlayClose
@@ -209,6 +210,7 @@ const Header = ({ type }) => {
                   </span>
                   <input
                     className="input-field"
+                    readOnly
                     onClick={() => toggleingInpuCal()}
                     onChange={(item) => setDateRange([item.selection])}
                     placeholder={`${format(
@@ -238,6 +240,7 @@ const Header = ({ type }) => {
                   />
                   <input
                     onClick={() => toggleOptions()}
+                    readOnly
                     className="input-field"
                     placeholder={`${people.adult} adults . ${people.children}  children . ${people.rooms} rooms`}
                   />
