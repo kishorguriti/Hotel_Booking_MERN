@@ -18,6 +18,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AvailableCities from "../City_Suggestion";
 
 const Header = ({ type }) => {
   const navigatesTo = useNavigate();
@@ -25,6 +26,7 @@ const Header = ({ type }) => {
   const [ShowCalender, setShowCalender] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [showTourGuide, setShowTourGuide] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   // const [showDateInp, setShowDateInp] = useState(true);
   const [steps, setSteps] = useState([
     {
@@ -123,6 +125,12 @@ const Header = ({ type }) => {
     navigatesTo(`/Booking.com/${name}`);
   };
 
+  const updateCitySearch = (value) => {
+    //document.getElementById("Search_City").style.textTransform:"cap"
+    setDestination(value);
+    setShowSuggestions(false);
+  };
+
   return (
     <>
       <Container
@@ -195,12 +203,26 @@ const Header = ({ type }) => {
                   <FontAwesomeIcon icon={faBed} className="input-icon-style" />
                   <input
                     type="search"
+                    style={{ textTransform: "capitalize" }}
+                    onFocus={() => (
+                      setShowSuggestions(true),
+                      setShowCalender(false),
+                      setShowOptions(false)
+                    )}
                     className="input-field"
                     placeholder="Where are you going?"
                     onChange={(e) => setDestination(e.target.value)}
-                    value={destination}
+                    value={destination.trim()}
                   />
                 </div>
+                {showSuggestions && (
+                  <div className="city_suggestions">
+                    <AvailableCities
+                      EnteredCity={`${destination.toLowerCase()}`}
+                      updateCitySearch={updateCitySearch}
+                    />
+                  </div>
+                )}
                 <div id="calender" className="input_align_style">
                   <span htmlFor="calender">
                     <FontAwesomeIcon
@@ -211,7 +233,9 @@ const Header = ({ type }) => {
                   <input
                     className="input-field"
                     readOnly
-                    onClick={() => toggleingInpuCal()}
+                    onClick={() => (
+                      toggleingInpuCal(), setShowSuggestions(false)
+                    )}
                     onChange={(item) => setDateRange([item.selection])}
                     placeholder={`${format(
                       date[0].startDate,

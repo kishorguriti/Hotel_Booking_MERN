@@ -9,6 +9,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var hotelsRouter = require("./routes/hotels");
 var roomsRouter = require("./routes/rooms");
+var CitiesRouter = require("./routes/cities");
 
 var mongoose = require("mongoose");
 
@@ -39,6 +40,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/hotels", hotelsRouter);
 app.use("/rooms", roomsRouter);
+app.use("/cities", CitiesRouter);
 
 // middleware
 
