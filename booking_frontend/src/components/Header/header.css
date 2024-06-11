@@ -1,3 +1,10 @@
+.city_suggestions {
+  position: absolute;
+  top: 220px;
+  width: 95vw;
+  max-width: 280px;
+}
+
 .header {
   height: 40.5vh;
   background-color: #003580;
@@ -22,16 +29,6 @@
   position: relative;
 }
 
-/* .input-field-container {
-  border: 3px solid gold;
-  height: 40px;
-  width: max-content;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-} */
 .icon-wrapper {
   padding: 12px;
 }
@@ -96,11 +93,6 @@
   flex: 1;
 }
 
-/* .input-field:active,
-.input-field:focus {
-  outline: 2px solid #0071c2 !important;
-} */
-
 .input-field-container {
   border: 3px solid gold;
   height: 40px;
@@ -162,7 +154,130 @@
 
 /* after modification */
 
-@media (max-width: 376px) {
+@media (max-width: 299px) {
+  .header {
+    height: 40.5vh;
+    background-color: #003580;
+    margin-top: -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    max-height: 230px;
+    margin-bottom: 75px;
+  }
+
+  .category_scroll {
+    overflow-x: scroll;
+  }
+
+  .category_scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .category_scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .header-input-contianer {
+    position: absolute;
+    top: 45.9vh;
+    left: 13vw;
+  }
+  .input-field-container {
+    border: 3px solid #ffb700;
+    height: max-content;
+    width: 94vw;
+    background-color: #ffb700;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2px;
+    border-radius: 6px;
+    /* overflow: scroll; */
+  }
+  .input_align_style {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border: 2px solid #ffb700;
+    border-radius: 6px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .input-field {
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    font-weight: 500;
+    margin: 11px;
+    overflow-x: scroll;
+    flex: 1 1;
+    max-width: 169px !important;
+  }
+  .city_suggestions {
+    position: absolute;
+    top: 160px;
+    width: 70vw;
+    left: 20px;
+    max-width: 250px;
+  }
+
+  .SelectingPeople {
+    width: max-content;
+    position: absolute;
+    bottom: -150px;
+    left: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1.8px solid gold;
+    background-color: white;
+    min-width: 150px;
+  }
+  .optionsItem {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+  .rdrCalendarWrapper {
+    color: #000000;
+    font-size: 11px !important;
+  }
+
+  .datePicker {
+    position: absolute;
+    bottom: -380px;
+    left: 2vw;
+    border: 2px solid gold;
+    max-width: 100%;
+  }
+  #search {
+    margin-top: 4px;
+  }
+  .search-btn {
+    background-color: #0071c2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 376px) {
   .header {
     height: 40.5vh;
     background-color: #003580;
@@ -228,6 +343,13 @@
     margin: 11px;
     flex: 1;
   }
+  .city_suggestions {
+    position: absolute;
+    top: 147px;
+    width: 88vw;
+    max-width: 300px;
+  }
+
   .SelectingPeople {
     width: max-content;
     position: absolute;
@@ -331,6 +453,12 @@
     margin: 11px;
     flex: 1;
   }
+  .city_suggestions {
+    position: absolute;
+    top: 62%;
+    width: 87vw;
+    max-width: 400px;
+  }
   .SelectingPeople {
     width: max-content;
     position: absolute;
@@ -420,6 +548,12 @@
     margin: 11px;
     flex: 1;
   }
+  .city_suggestions {
+    position: absolute;
+    top: 178px;
+    width: 95vw;
+    max-width: 250px;
+  }
   #search {
     margin-top: 4px;
   }
@@ -487,6 +621,18 @@
     font-weight: 500;
     margin: 5px 0;
     flex: 1;
+  }
+  /* .city_suggestions {
+    position: absolute;
+    top: 178px;
+    width: 95vw;
+    max-width: 250px;
+  } */
+  .city_suggestions {
+    position: absolute;
+    top: 195px;
+    width: 95vw;
+    max-width: 250px;
   }
   .search-btn {
     background-color: #0071c2;
@@ -564,6 +710,12 @@
     font-weight: 500;
     margin: 5px 0;
     flex: 1;
+  }
+  .city_suggestions {
+    position: absolute;
+    top: 205px;
+    width: 95vw;
+    max-width: 250px;
   }
 
   .search-btn {
@@ -667,6 +819,12 @@
     font-weight: 500;
     margin: 5px 0;
     flex: 1;
+  }
+  .city_suggestions {
+    position: absolute;
+    top: 195px;
+    width: 95vw;
+    max-width: 250px;
   }
 
   .search-btn {
@@ -776,6 +934,12 @@
     justify-content: space-around;
     align-items: center;
     position: relative;
+  }
+  .city_suggestions {
+    position: absolute;
+    top: 235px;
+    width: 95vw;
+    max-width: 280px;
   }
 
   .SelectingPeople {

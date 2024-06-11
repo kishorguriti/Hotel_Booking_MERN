@@ -1,4 +1,4 @@
-import React, { useEffect ,useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import Home from "../Home";
 import Footer from "../../components/Footer";
 import MyNavbar from "../../components/MyNavbar";
@@ -23,8 +23,8 @@ import ApiMethods from "../../api/methods";
 
 function List() {
   let loaderType = "spin";
-const listRef=useRef()
-const NolistRef=useRef()
+  const listRef = useRef();
+  const NolistRef = useRef();
   const searchDetails = useLocation();
   const { t, i18n } = useTranslation();
   const [searchParams] = useSearchParams();
@@ -119,19 +119,18 @@ const NolistRef=useRef()
 
   const getAllHotels = async () => {
     try {
-let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCase()}`})
+      let hotels = await ApiMethods.get("hotels-city", {
+        city: `${destination.toLowerCase()}`,
+      });
       setMyData(hotels.data);
       setLoading(false);
       setSlice(hotels.data.slice(0, 4));
-    } catch (err) {
-     
-    }
+    } catch (err) {}
   };
 
   const onSearchClick = async () => {
     setSearchLoading(true);
-    
-   
+
     navigatesTo(
       `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination.toLowerCase()}&min=${minPrice}&max=${maxPrice}&daysDiff=${daysDiff}&type=all&adult=${
         people.adult
@@ -140,27 +139,25 @@ let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCas
       }&to=${date[0].endDate}`
     );
 
-   
-
     try {
-      let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCase()}` , min:`${minPrice}` , max:`${maxPrice}`, daysDiff:`${daysDiff}`})
+      let hotels = await ApiMethods.get("hotels-city", {
+        city: `${destination.toLowerCase()}`,
+        min: `${minPrice}`,
+        max: `${maxPrice}`,
+        daysDiff: `${daysDiff}`,
+      });
       setMyData(hotels.data);
       setLoading(false);
       setSlice(hotels.data.slice(0, 4));
       setSearchLoading(false);
-      if(Mydata.length===0){
-        NolistRef?.current?.scrollIntoView({ behavior: 'smooth' });
-        NolistRef?.current?.focus()
+      if (Mydata.length === 0) {
+        NolistRef?.current?.scrollIntoView({ behavior: "smooth" });
+        NolistRef?.current?.focus();
+      } else {
+        listRef?.current?.scrollIntoView({ behavior: "smooth" });
+        listRef?.current?.focus();
       }
-      else{
-        listRef?.current?.scrollIntoView({ behavior: 'smooth' });
-        listRef?.current?.focus()
-      }
-      
-      
-    } catch (err) {
-     
-    }
+    } catch (err) {}
   };
 
   const changePage = (value) => {
@@ -215,6 +212,7 @@ let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCas
                       width: "99%",
                       paddingLeft: "10px",
                       fontWeight: "bold",
+                      textTransform: "capitalize",
                     }}
                     placeholder={destination}
                     onChange={(e) => setDestination(e.target.value)}
@@ -369,14 +367,14 @@ let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCas
           </Col>
 
           {!loading ? (
-            < >
+            <>
               {Mydata.length === 0 ? (
                 <Col ref={NolistRef} tabIndex="-1">
-                  <NoHotelsFound city={destination}  />
+                  <NoHotelsFound city={destination} />
                 </Col>
               ) : (
                 <Col sm={12} md={8} lg={9} ref={listRef} tabIndex="-1">
-                  <Container className="list_items" >
+                  <Container className="list_items">
                     <Row>
                       {slice?.map((eachHotel, i) => {
                         return (
@@ -386,7 +384,6 @@ let hotels= await ApiMethods.get('hotels-city' , {city:`${destination.toLowerCas
                                 <div className="hotel_card_container">
                                   <div className="hotel_image_container ">
                                     <img
-                                   
                                       onClick={() =>
                                         navigatesToHotel(
                                           eachHotel,

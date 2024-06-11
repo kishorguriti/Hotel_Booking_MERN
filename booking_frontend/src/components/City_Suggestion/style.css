@@ -1,0 +1,25 @@
+.card_container {
+  background-color: #ffffff;
+}
+.city_container:hover {
+  background-color: #f2f2f2;
+}
+
+.popular-suggestions {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 12px;
+}
+.city_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 299px) {
+  .card_container {
+    min-width: 200px !important;
+  }
+}

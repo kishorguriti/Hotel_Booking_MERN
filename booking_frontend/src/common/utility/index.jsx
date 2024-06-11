@@ -10,4 +10,5 @@ export const assetsIcons = {
   logout: require("../../assets/logout.png"),
   manage_accoutns: require("../../assets/user-settings.png"),
   language: require("../../assets/language.png"),
+  location: require("../../assets/location.png"),
 };
