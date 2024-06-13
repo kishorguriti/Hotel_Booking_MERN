@@ -1,5 +1,4 @@
-
-import React, {useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,27 +6,39 @@ import "./style.css";
 import MyCustomHook from "../../Hooks/hook";
 import { useTranslation } from "react-i18next";
 import ApiMethods from "../../api/methods";
+import { useNavigate } from "react-router-dom";
 
 function PropertyList() {
-const { t, i18n } = useTranslation();
-const [data , setData]=useState([])
+  const { t, i18n } = useTranslation();
+  const [data, setData] = useState([]);
+  const navigation = useNavigate();
 
-  useEffect(()=>{
-    getCountByType()
-  },[])
+  useEffect(() => {
+    getCountByType();
+  }, []);
 
-const getCountByType= async ()=>{
-  let response = await ApiMethods.get('hotels-countbytype')
-  setData(response.data)
-}
-  
+  const getCountByType = async () => {
+    let response = await ApiMethods.get("hotels-countbytype");
+    setData(response.data);
+  };
+
+  const SearchBasedOnPropertyType = (type) => {
+    navigation(
+      `/Booking.com/hotels/type?searchresults.en-gb.html?&type=${type}`
+    );
+  };
 
   return (
     <>
       <Container>
         <Row>
-          <Col sm={12} md={6} lg={4}>
-            <div >
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("hotel")}
+          >
+            <div>
               <img
                 src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 className="property_img_style"
@@ -40,7 +51,12 @@ const getCountByType= async ()=>{
               </p>
             </div>
           </Col>
-          <Col sm={12} md={6} lg={4}>
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("apartment")}
+          >
             <div>
               <img
                 src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -55,7 +71,12 @@ const getCountByType= async ()=>{
               </p>
             </div>
           </Col>
-          <Col sm={12} md={6} lg={4}>
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("resort")}
+          >
             <div>
               <img
                 src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/222673017.jpg?k=f2634ac5ace7ac2c838528232617ba63b29f08fb27cd8154767a9fb654976ed7&o=&hp=1"
@@ -69,7 +90,12 @@ const getCountByType= async ()=>{
               </p>
             </div>
           </Col>
-          <Col sm={12} md={6} lg={4}>
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("villa")}
+          >
             <div>
               <img
                 src="https://images.pexels.com/photos/87378/pexels-photo-87378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -85,7 +111,12 @@ const getCountByType= async ()=>{
               </p>
             </div>
           </Col>
-          <Col sm={12} md={6} lg={4}>
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("cabin")}
+          >
             <div>
               <img
                 src="https://images.pexels.com/photos/206648/pexels-photo-206648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -99,7 +130,12 @@ const getCountByType= async ()=>{
               </p>
             </div>
           </Col>
-          <Col sm={12} md={6} lg={4}>
+          <Col
+            sm={12}
+            md={6}
+            lg={4}
+            onClick={() => SearchBasedOnPropertyType("cabin")}
+          >
             <div>
               <img
                 src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

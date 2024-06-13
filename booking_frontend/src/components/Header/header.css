@@ -858,8 +858,8 @@
   }
   .datePicker {
     position: absolute;
-    bottom: -356px;
-    left: 30vw;
+    bottom: -376px;
+    left: 32vw;
     border: 1.5px solid gold;
   }
 }

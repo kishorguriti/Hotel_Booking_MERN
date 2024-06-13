@@ -4,6 +4,7 @@ const urlsList = {
   "hotels-countbycity": "hotels/countbycity",
   "hotels-countbytype": "hotels/countbytype",
   "hotels-city": "hotels/city", // hotels in a city
+  "hotels-type": "hotels/type/", // properties based on type
   "hotels-find": "hotels/find/",
   "users-validate": "users/validate",
   "hotels-OverAllcountbytypeandcity": "hotels/OverAllcountbytypeandcity",

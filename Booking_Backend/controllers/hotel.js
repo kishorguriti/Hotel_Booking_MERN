@@ -35,9 +35,9 @@ const updateHotel = async function (req, res, next) {
 
 const addReview = async (req, res, next) => {
   let hotelid = req.params.hotelId;
- 
+
   let body = req.body;
-  
+
   try {
     let hotel = await HotelModel.findByIdAndUpdate(
       hotelid,
@@ -91,7 +91,6 @@ const AllHotels = async function (req, res, next) {
 };
 
 const CountByCities = async (req, res) => {
- 
   let cities = req.query.cities.split(",");
   try {
     let hotelsCount = await Promise.all(
@@ -135,13 +134,23 @@ const CountBytype = async (req, res, next) => {
   }
 };
 
+const getByType = async (req, res, next) => {
+  let requestedType = req.query.type;
+
+  try {
+    let hotels = await HotelModel.find({ type: requestedType });
+    return res.send(hotels);
+  } catch (error) {
+    next(error);
+  }
+};
 
 const hotelsinCity = async (req, res, next) => {
   let city = req.query.city;
-  const daysDiff=parseInt(req.query.daysDiff);
-  let minPrice = parseInt(req.query.min)/daysDiff;
-  let maxPrice = parseInt(req.query.max)/daysDiff; 
- 
+  const daysDiff = parseInt(req.query.daysDiff);
+  let minPrice = parseInt(req.query.min) / daysDiff;
+  let maxPrice = parseInt(req.query.max) / daysDiff;
+
   if (minPrice || maxPrice) {
     try {
       let allHotels = await HotelModel.aggregate([
@@ -254,7 +263,7 @@ const overAllcountBytypeAndCity = async (req, res, next) => {
         };
 
         OverAll_Count_By_type_and_city_Array.push(Count_By_type_and_city_obj);
-      
+
         return OverAll_Count_By_type_and_city_Array;
       })
     );
@@ -372,4 +381,5 @@ module.exports = {
   userBookedHotels,
   overAllcountBytypeAndCity,
   addReview,
+  getByType,
 };

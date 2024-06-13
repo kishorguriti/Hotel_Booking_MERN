@@ -23,7 +23,9 @@ router.delete(
   hotelsController.deleteHotel
 );
 router.get("/countbycity", hotelsController.CountByCities);
+
 router.get("/countbytype", hotelsController.CountBytype);
+router.get('/type', hotelsController.getByType)
 router.get("/countbytypeandcity", hotelsController.CountBytypeAndCity);
 router.get("/city", hotelsController.hotelsinCity);
 router.put("/city/price", hotelsController.addPrice);

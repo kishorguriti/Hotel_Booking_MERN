@@ -114,8 +114,23 @@ function List() {
   }
 
   useEffect(() => {
-    getAllHotels();
+    if (!urlQueryObj.city) {
+      getPropertiesBasedOnType();
+    } else {
+      getAllHotels();
+    }
   }, []);
+
+  const getPropertiesBasedOnType = async () => {
+    try {
+      let hotels = await ApiMethods.get("hotels-type", {
+        type: `${urlQueryObj?.type.toLowerCase()}`,
+      });
+      setMyData(hotels.data);
+      setLoading(false);
+      setSlice(hotels.data.slice(0, 4));
+    } catch (err) {}
+  };
 
   const getAllHotels = async () => {
     try {
@@ -132,7 +147,7 @@ function List() {
     setSearchLoading(true);
 
     navigatesTo(
-      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination.toLowerCase()}&min=${minPrice}&max=${maxPrice}&daysDiff=${daysDiff}&type=all&adult=${
+      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination?.toLowerCase()}&min=${minPrice}&max=${maxPrice}&daysDiff=${daysDiff}&type=all&adult=${
         people.adult
       }&child=${people.children}&rooms=${people.rooms}&from=${
         date[0].startDate
@@ -141,7 +156,7 @@ function List() {
 
     try {
       let hotels = await ApiMethods.get("hotels-city", {
-        city: `${destination.toLowerCase()}`,
+        city: `${destination?.toLowerCase()}`,
         min: `${minPrice}`,
         max: `${maxPrice}`,
         daysDiff: `${daysDiff}`,

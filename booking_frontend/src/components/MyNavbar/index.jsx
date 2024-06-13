@@ -94,104 +94,107 @@ function MyNavbar({ type }) {
 
   return (
     <>
-    <Navbar
-      expand="sm"
-      style={{ backgroundColor: "#003580", position: "relative" }}
-    >
-      <Container>
-        <Navbar.Brand
-          as={NavLink}
-          to="/Booking.com"
-          style={{ color: "white", textDecoration: "none" }}
-        >
-          Booking.com
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          {!loginUser ? (
-            <Nav className="ms-auto">
-             
-              <Nav.Link
-                className="text-light fw-bold"
-                onClick={() => setModalShow(true)}
-              >
-                {t("Login/Register")}
-              </Nav.Link>
-            </Nav>
-          ) : (
-            <Nav className="ms-auto">
-              <Nav.Link
-                className="text-light ms-auto fw-bold"
-                // style={{ position: "relative" }}
-              >
-                <Box
-                  onMouseEnter={() => setShowTooltip(true)}
-                  // onMouseLeave={() => setShowTooltip(false)}
-                  className="user_Profile_NavLink"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    // position: "relative",
-                  }}
+      <Navbar
+        expand="sm"
+        style={{ backgroundColor: "#003580", position: "relative" }}
+      >
+        <Container>
+          <Navbar.Brand
+            as={NavLink}
+            to="/Booking.com"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
+            Booking.com
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            {!loginUser ? (
+              <Nav className="ms-auto">
+                <Nav.Link
+                  className="text-light fw-bold"
+                  onClick={() => setModalShow(true)}
                 >
-                  <Avatar
-                    src={
-                      loginUser?.profileImage
-                        ? loginUser?.profileImage
-                        : assetsIcons.user
-                    }
+                  {t("Login/Register")}
+                </Nav.Link>
+              </Nav>
+            ) : (
+              <Nav className="ms-auto">
+                <Nav.Link
+                  className="text-light ms-auto fw-bold"
+                  // style={{ position: "relative" }}
+                >
+                  <Box
+                    onMouseEnter={() => setShowTooltip(true)}
+                    // onMouseLeave={() => setShowTooltip(false)}
+                    className="user_Profile_NavLink"
                     sx={{
-                      width: 22,
-                      height: 22,
-                      borderRadius: "100px",
-                      marginRight: 1,
+                      display: "flex",
+                      alignItems: "center",
+                      // position: "relative",
                     }}
-                  />
-                  {loginUser.username}
-                </Box>
-              </Nav.Link>
+                  >
+                    <Avatar
+                      src={
+                        loginUser?.profileImage
+                          ? loginUser?.profileImage
+                          : assetsIcons.user
+                      }
+                      sx={{
+                        width: 22,
+                        height: 22,
+                        borderRadius: "100px",
+                        marginRight: 1,
+                      }}
+                    />
+                    {loginUser.username}
+                  </Box>
+                </Nav.Link>
 
-              {showTooltip && <ProfileModel setShowTooltip={setShowTooltip} />}
-              {!type && (
+                {showTooltip && (
+                  <ProfileModel setShowTooltip={setShowTooltip} />
+                )}
+                {!type && (
+                  <Nav.Link
+                    className="text-light ms-auto fw-bold d-md-none"
+                    onClick={() => gotoUserpage(loginUser.username)}
+                  >
+                    Profile
+                  </Nav.Link>
+                )}
                 <Nav.Link
                   className="text-light ms-auto fw-bold d-md-none"
-                  onClick={() => gotoUserpage(loginUser.username)}
+                  onClick={loggingOut}
                 >
-                  Profile
+                  Logout
                 </Nav.Link>
-              )}
-              <Nav.Link
-                className="text-light ms-auto fw-bold d-md-none"
-                onClick={loggingOut}
-              >
-                Logout
-              </Nav.Link>
-            </Nav>
-          )}
-        </Navbar.Collapse>
-      </Container>
-      <ToastContainer
-        position="top-right"
-        autoClose={6000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      
-    </Navbar>
-    {modalShow && (
-      <Login
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        notification={notify}
-      />
-    )}
-    
+              </Nav>
+            )}
+          </Navbar.Collapse>
+        </Container>
+        <ToastContainer
+          position="top-right"
+          autoClose={6000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </Navbar>
+      {modalShow && (
+        <Login
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          notification={notify}
+        />
+      )}
     </>
   );
 }

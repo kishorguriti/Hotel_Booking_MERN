@@ -17,7 +17,6 @@ const All_Available_cities = async (req, res, next) => {
     let filteredCities = CitiesArray.filter((each) => {
       return each.includes(searchEntry);
     });
-    console.log(filteredCities, "filteredCities");
     return res.send(filteredCities);
   } catch (error) {
     next(error);

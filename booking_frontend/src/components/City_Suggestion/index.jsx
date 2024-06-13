@@ -17,6 +17,7 @@ const AvailableCities = ({ EnteredCity = "", updateCitySearch = () => {} }) => {
     let cities = await ApiMethods.get("available_cities", {
       city: EnteredCity.trim(),
     });
+
     setSuggestedCities(cities.data);
   };
 
@@ -33,41 +34,45 @@ const AvailableCities = ({ EnteredCity = "", updateCitySearch = () => {} }) => {
         <CardContent style={{ padding: "0px" }}>
           <p className="popular-suggestions">Popular Destinations nearby</p>
 
-          {suggestedCities?.slice(0, 4).map((each, i) => {
-            return (
-              <div>
-                <Container
-                  className="city_container"
-                  sx={{
-                    marginBottom: "0px",
-                    marginTop: "0px",
-                  }}
-                  onClick={() => updateCitySearch(each)}
-                >
-                  <img src={assetsIcons.location} height={22} width={20} />
-                  <div className="m-2">
-                    <p
-                      style={{
-                        marginBottom: "-10px",
-                        fontSize: "12px",
-                        fontWeight: "bold",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      {each}
-                    </p>
-                    <span style={{ fontSize: "11px" }}>
-                      Andhra Pradesh ,India
-                    </span>
-                  </div>
-                </Container>
-                <hr
-                  style={{ width: "120%", margin: "0px -20px" }}
-                  className={i + 1 == suggestedCities.length && "d-none"}
-                />
-              </div>
-            );
-          })}
+          {suggestedCities
+            ?.sort()
+            .slice(0, 4)
+
+            .map((each, i) => {
+              return (
+                <div>
+                  <Container
+                    className="city_container"
+                    sx={{
+                      marginBottom: "0px",
+                      marginTop: "0px",
+                    }}
+                    onClick={() => updateCitySearch(each)}
+                  >
+                    <img src={assetsIcons.location} height={22} width={20} />
+                    <div className="m-2">
+                      <p
+                        style={{
+                          marginBottom: "-10px",
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {each}
+                      </p>
+                      <span style={{ fontSize: "11px" }}>
+                        Andhra Pradesh ,India
+                      </span>
+                    </div>
+                  </Container>
+                  <hr
+                    style={{ width: "120%", margin: "0px -20px" }}
+                    className={i + 1 == suggestedCities.length && "d-none"}
+                  />
+                </div>
+              );
+            })}
         </CardContent>
       ) : (
         <CardContent>

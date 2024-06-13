@@ -27,6 +27,7 @@ const Header = ({ type }) => {
   const [showOptions, setShowOptions] = useState(false);
   const [showTourGuide, setShowTourGuide] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+
   // const [showDateInp, setShowDateInp] = useState(true);
   const [steps, setSteps] = useState([
     {
@@ -100,6 +101,12 @@ const Header = ({ type }) => {
   // setSelectedDates(date);
 
   function seeFulldetailsofHotel() {
+    if (!destination && searchBtnRef?.current) {
+      searchBtnRef?.current?.focus();
+      //searchBtnRef?.current.style.border = "1px solid blue";
+      return;
+    }
+
     navigatesTo(
       `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination.toLowerCase()}&type=all&adult=${
         people.adult
@@ -199,7 +206,7 @@ const Header = ({ type }) => {
 
             <Container fluid className=" mt-1  d-flex justify-content-center ">
               <div className="input-field-container">
-                <div id="city" className="input_align_style">
+                <div id="city" className="input_align_style" ref={searchBtnRef}>
                   <FontAwesomeIcon icon={faBed} className="input-icon-style" />
                   <input
                     type="search"
@@ -263,7 +270,7 @@ const Header = ({ type }) => {
                     className="input-icon-style"
                   />
                   <input
-                    onClick={() => toggleOptions()}
+                    onClick={() => (toggleOptions(), setShowSuggestions(false))}
                     readOnly
                     className="input-field"
                     placeholder={`${people.adult} adults . ${people.children}  children . ${people.rooms} rooms`}
@@ -353,9 +360,9 @@ const Header = ({ type }) => {
                 )}
                 <div id="search" className="w-100 d-flex">
                   <button
-                    ref={searchBtnRef}
                     className="search-btn"
                     onClick={seeFulldetailsofHotel}
+                    disabled={!destination}
                   >
                     {t("Search")}
                   </button>
