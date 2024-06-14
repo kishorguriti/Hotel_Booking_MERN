@@ -19,6 +19,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AvailableCities from "../City_Suggestion";
+import notify from "../ToastMessage";
 
 const Header = ({ type }) => {
   const navigatesTo = useNavigate();
@@ -101,8 +102,9 @@ const Header = ({ type }) => {
   // setSelectedDates(date);
 
   function seeFulldetailsofHotel() {
-    if (!destination && searchBtnRef?.current) {
-      searchBtnRef?.current?.focus();
+    if (!destination) {
+      //searchBtnRef?.current?.focus();
+      notify("Enter City", "fail");
       //searchBtnRef?.current.style.border = "1px solid blue";
       return;
     }
@@ -216,6 +218,7 @@ const Header = ({ type }) => {
                       setShowCalender(false),
                       setShowOptions(false)
                     )}
+                    onBlur={() => setShowSuggestions(false)}
                     className="input-field"
                     placeholder="Where are you going?"
                     onChange={(e) => setDestination(e.target.value)}
@@ -362,7 +365,7 @@ const Header = ({ type }) => {
                   <button
                     className="search-btn"
                     onClick={seeFulldetailsofHotel}
-                    disabled={!destination}
+                    // disabled={!destination}
                   >
                     {t("Search")}
                   </button>

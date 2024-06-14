@@ -11,4 +11,5 @@ export const assetsIcons = {
   manage_accoutns: require("../../assets/user-settings.png"),
   language: require("../../assets/language.png"),
   location: require("../../assets/location.png"),
+  map_marker: require("../../assets/map_marker.png"),
 };
