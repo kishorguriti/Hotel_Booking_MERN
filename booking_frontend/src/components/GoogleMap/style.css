@@ -1,9 +1,14 @@
 .map-container {
-   width: 100% !important; 
+  width: 100% !important;
   height: 500px;
   display: flex;
   justify-content: center;
-} 
+}
+
+.google-map-hover-boxinfo {
+  display: flex !important;
+  align-items: center !important;
+}
 
 /* @media (max-width: 576px) {
   .map-container {
