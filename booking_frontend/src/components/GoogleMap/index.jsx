@@ -18,15 +18,16 @@ const containerStyle = {
 };
 
 const markers = [
-  { position: { lat: 17.3616, lng: 78.4747 } },
-  { position: { lat: 17.4506, lng: 78.3812 } },
-  { position: { lat: 17.44273635791334, lng: 78.38164519547365 } },
-  { position: { lat: 17.43313031033828, lng: 78.38506532361934 } },
+  // { position: { lat: 17.3616, lng: 78.4747 } },
+  // { position: { lat: 17.4506, lng: 78.3812 } },
+  { position: { lat: 11.406414, lng: 76.693245 } },
+  // { position: { lat: 17.43313031033828, lng: 78.38506532361934 } },
+  // { postiton: { lat: 11.406414, lng: 76.693245 } },
 ];
 
 const CustomGoogleMaps = ({ destinationCity, adult, children, rooms }) => {
   const [location, setLocation] = useState(null);
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState(destinationCity);
   const [markerIndex, setMarkerIndex] = useState(null);
   const [focusedHotel, setFocusedHotel] = useState([]);
   const navigatesTo = useNavigate();
@@ -77,7 +78,9 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms }) => {
   };
 
   const getHotelsInCity = async () => {
-    let allHotelsInCity = await ApiMethods.get("hotels-city", { city: city });
+    let allHotelsInCity = await ApiMethods.get("hotels-city", {
+      city: destinationCity,
+    });
     console.log(allHotelsInCity.data, "allHotelsInCity google");
   };
 

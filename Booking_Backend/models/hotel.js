@@ -55,6 +55,12 @@ const hotelsSchema = new Schema({
   price: {
     type: Number,
   },
+  OwnerInfo: {
+    ownername: { type: String },
+    ownerEmail: { type: String },
+    ownerContactNo: { type: Number },
+  },
+  location: { type: Object },
   reviews: [ReviewSchema],
 });
 

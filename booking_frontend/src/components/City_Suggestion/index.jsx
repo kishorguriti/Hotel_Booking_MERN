@@ -40,7 +40,7 @@ const AvailableCities = ({ EnteredCity = "", updateCitySearch = () => {} }) => {
 
             .map((each, i) => {
               return (
-                <div>
+                <div key={i}>
                   <Container
                     className="city_container"
                     sx={{
@@ -68,7 +68,7 @@ const AvailableCities = ({ EnteredCity = "", updateCitySearch = () => {} }) => {
                   </Container>
                   <hr
                     style={{ width: "120%", margin: "0px -20px" }}
-                    className={i + 1 == suggestedCities.length && "d-none"}
+                    className={i + 1 == suggestedCities.length ? "d-none" : ""}
                   />
                 </div>
               );
