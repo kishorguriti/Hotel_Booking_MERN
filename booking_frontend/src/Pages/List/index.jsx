@@ -376,7 +376,12 @@ function List() {
                 </div>
               </Col>
               <Col sm={12}>
-                <CustomGooglMaps  destinationCity={destination} adult={people.adult} children={people.children} room={people.rooms}/>
+                <CustomGooglMaps
+                  destinationCity={destination}
+                  adult={people.adult}
+                  children={people.children}
+                  rooms={people.rooms}
+                />
               </Col>
             </Row>
           </Col>

@@ -147,7 +147,7 @@ const Header = ({ type }) => {
         fluid
       >
         <Container className="d-flex justify-content-between category_scroll">
-          <div className="icon-wrapper">
+          <div className="icon-wrapper" onClick={() => navigatesToPage("")}>
             <FontAwesomeIcon icon={faBed} className="icon-style" />
             <span className="icon-name"> {t("Stays")}</span>
           </div>

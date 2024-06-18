@@ -32,6 +32,19 @@
 .icon-wrapper {
   padding: 12px;
 }
+.icon-wrapper:hover {
+  padding: 11px;
+  border: 1px solid white;
+  background-color: rgb(31, 78, 148);
+  border-radius: 22px;
+}
+
+.icon-wrapper:active {
+  padding: 11px;
+  border: 1px solid white;
+  background-color: rgb(31, 78, 148);
+  border-radius: 22px;
+}
 
 .icon-name {
   color: white;
@@ -588,10 +601,7 @@
     top: 30.5vh;
     left: 1vw;
   }
-  .icon-wrapper:hover {
-    background-color: #e2e2e2;
-    border-radius: 12px;
-  }
+
   .input-field-container {
     border: 3px solid gold;
     height: 50px;
