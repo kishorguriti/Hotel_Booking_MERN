@@ -103,9 +103,8 @@ const Header = ({ type }) => {
 
   function seeFulldetailsofHotel() {
     if (!destination) {
-      //searchBtnRef?.current?.focus();
+      searchBtnRef?.current?.focus();
       notify("Enter City", "fail");
-      //searchBtnRef?.current.style.border = "1px solid blue";
       return;
     }
 
@@ -218,7 +217,7 @@ const Header = ({ type }) => {
                       setShowCalender(false),
                       setShowOptions(false)
                     )}
-                    onBlur={() => setShowSuggestions(false)}
+                    // onBlur={() => setShowSuggestions(false)}
                     className="input-field"
                     placeholder="Where are you going?"
                     onChange={(e) => setDestination(e.target.value)}
