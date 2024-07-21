@@ -331,7 +331,7 @@ function Hotel() {
                     <Col xs={4} key={each}>
                       <img
                         style={{ cursor: "pointer" }}
-                        className="images_style "
+                        className="images_style"
                         key={each}
                         src={each}
                         onClick={() => handleClickOnImg(index)}
