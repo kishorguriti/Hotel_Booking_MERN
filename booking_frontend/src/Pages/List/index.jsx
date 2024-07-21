@@ -400,7 +400,7 @@ function List() {
                         return (
                           <Col sm={12} key={`${eachHotel._id}${i}`}>
                             <Card>
-                              <div style={{ padding: "20px" }}>
+                              <div style={{ padding: "10px" }}>
                                 <div className="hotel_card_container">
                                   <div className="hotel_image_container ">
                                     <img
@@ -426,6 +426,7 @@ function List() {
                                       src={eachHotel.photos[0]}
                                       alt="hotelImage"
                                       className="hotel_card_img"
+                                    
                                     />
                                   </div>
                                   <div className="hotel_details_container">
@@ -433,7 +434,7 @@ function List() {
                                       <div>
                                         <h6 className="hotel_name_style">
                                           {eachHotel.name}
-                                          <span className="rating_h">
+                                          {/* <span className="rating_h">
                                             {" "}
                                             {7}
                                             <svg
@@ -456,7 +457,7 @@ function List() {
                                                 {t("onHoverRating")}
                                               </span>
                                             </div>
-                                          </span>
+                                          </span> */}
                                         </h6>
                                         <p className="land_mark">
                                           500m from {eachHotel.landmark}{" "}

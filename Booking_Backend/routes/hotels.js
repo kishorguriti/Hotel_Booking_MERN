@@ -19,7 +19,7 @@ router.put(
 );
 router.delete(
   "/:id",
-  authController.authenticate,
+  //authController.authenticate,
   hotelsController.deleteHotel
 );
 router.get("/countbycity", hotelsController.CountByCities);
