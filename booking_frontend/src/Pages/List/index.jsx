@@ -402,7 +402,7 @@ function List() {
                             <Card>
                               <div style={{ padding: "10px" }}>
                                 <div className="hotel_card_container">
-                                  <div className="hotel_image_container ">
+                                  <div className="hotel_image_container">
                                     <img
                                       onClick={() =>
                                         navigatesToHotel(
