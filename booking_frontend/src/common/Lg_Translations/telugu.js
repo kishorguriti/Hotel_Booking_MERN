@@ -30,6 +30,7 @@ export const Telugu_Translations = {
   Resorts: "రిసార్ట్స్",
   Villas: "విల్లాలు",
   Cabins: "క్యాబిన్లు",
+  Farmhouse:"ఫామ్‌హౌస్",
   "Min-Max Price (per night in ₹ 1000)":
     "కనిష్ట-గరిష్ట ధర (ఒక రాత్రికి ₹ 1000)",
   "Homes guests love": "వినియోగదారులు ఇష్టమైన ఇల్లులు",

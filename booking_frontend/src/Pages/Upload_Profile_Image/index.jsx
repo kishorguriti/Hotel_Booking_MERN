@@ -66,14 +66,14 @@ const updateUser= async ()=>{
     <>
       {selectedProfileImage && (
         <Card
-          sx={{ maxWidth: 300, maxHeight: 300, m: 4, borderRadius: "100%" }}
+          sx={{ maxWidth: 320, maxHeight: 320, m: 4, width:"100%" }}
         >
           <img
             src={generatedCloudUrl}
-            style={{ objectFit: "fill" }}
+            style={{ objectFit: "fill" ,borderRadius: "100%"  }}
             alt="selected_image"
             height={300}
-            width={300}
+            width={"100%"}
           />
         </Card>
       )}

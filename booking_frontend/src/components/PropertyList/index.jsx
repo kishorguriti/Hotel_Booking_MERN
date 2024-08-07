@@ -47,7 +47,7 @@ function PropertyList() {
             <div className="d-flex justify-content-between mt-1">
               <h5 className="property-name-style">{t("Hotels")}</h5>
               <p>
-                {data.length > 0 ? data[0].hotelCount : "0"} {t("Properties")}
+                {data.length > 0 ? data[0]?.hotelCount : "0"} {t("Properties")}
               </p>
             </div>
           </Col>
@@ -66,7 +66,7 @@ function PropertyList() {
             <div className="d-flex justify-content-between mt-1">
               <h5 className="property-name-style">{t("Apartments")}</h5>
               <p>
-                {data.length > 0 ? data[0].apartmentCount : "0"}{" "}
+                {data.length > 0 ? data[0]?.apartmentCount : "0"}{" "}
                 {t("Properties")}
               </p>
             </div>
@@ -86,7 +86,7 @@ function PropertyList() {
             <div className="d-flex justify-content-between mt-1">
               <h5 className="property-name-style">{t("Resorts")}</h5>
               <p>
-                {data.length > 0 ? data[0].resortCount : "0"} {t("Properties")}
+                {data.length > 0 ? data[0]?.resortCount : "0"} {t("Properties")}
               </p>
             </div>
           </Col>
@@ -106,7 +106,7 @@ function PropertyList() {
               <h5 className="property-name-style">{t("Villas")}</h5>
 
               <p>
-                {data.length > 0 ? data[0].villaCount : "0"}
+                {data.length > 0 ? data[0]?.villaCount : "0"}{' '}
                 {t("Properties")}
               </p>
             </div>
@@ -126,7 +126,7 @@ function PropertyList() {
             <div className="d-flex justify-content-between mt-1">
               <h5 className="property-name-style">{t("Cabins")}</h5>
               <p>
-                {data.length > 0 ? data[0].cabinCount : "0"} {t("Properties")}
+                {data.length > 0 ? data[0]?.cabinCount : "0"} {t("Properties")}
               </p>
             </div>
           </Col>
@@ -134,18 +134,18 @@ function PropertyList() {
             sm={12}
             md={6}
             lg={4}
-            onClick={() => SearchBasedOnPropertyType("cabin")}
+            onClick={() => SearchBasedOnPropertyType("farmhouse")}
           >
             <div>
               <img
-                src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://blog.newhomesource.com/wp-content/uploads/2019/09/farmhouse.jpg.webp"
                 className="property_img_style"
               />
             </div>
             <div className="d-flex justify-content-between mt-1">
-              <h5 className="property-name-style">{t("Cabins")}</h5>
+              <h5 className="property-name-style">{t("Farmhouse")}</h5>
               <p>
-                {data.length > 0 ? data[0].cabinCount : "0"} {t("Properties")}
+                {data.length > 0 ? data[0]?.FarmHouseCount : "0"} {t("Properties")}
               </p>
             </div>
           </Col>

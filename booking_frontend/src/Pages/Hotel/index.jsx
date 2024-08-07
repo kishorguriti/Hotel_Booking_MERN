@@ -232,7 +232,7 @@ function Hotel() {
 
   const goBack = () => {
     navigate(
-      `/Booking.com/hotels?city=${destination}&&type=all&&min=${urlQueryObj.min}?&&max=${urlQueryObj.max}?`,
+      `/Booking.com/hotels?city=${destination}&&min=${urlQueryObj.min}?&&max=${urlQueryObj.max}?`,
       {
         state: { destination, date, people },
       }
@@ -280,12 +280,12 @@ function Hotel() {
         <Container className="hotel_details">
           <div>
             <h1 className="hotel_name">{singleHotel.name}</h1>
-            <FontAwesomeIcon icon={faLocationDot} />{" "}
+            <FontAwesomeIcon icon={faLocationDot} />{" "}{" "}
             <span style={{ fontSize: "14px" }}>
               500m {t("from")} {singleHotel.landmark}
             </span>
             <p className="location_Des">
-              Excellent location - 5OOm from center
+              {/* Excellent location - 5OOm from center */}
             </p>
             <p className="adress_para">
               Book a stay over $114 at this property and get a free airport taxi{" "}

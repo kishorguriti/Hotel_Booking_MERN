@@ -147,7 +147,7 @@ function List() {
     setSearchLoading(true);
 
     navigatesTo(
-      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination?.toLowerCase()}&min=${minPrice}&max=${maxPrice}&daysDiff=${daysDiff}&type=all&adult=${
+      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination?.toLowerCase()}&min=${minPrice}&max=${maxPrice}&daysDiff=${daysDiff}&type=''&adult=${
         people.adult
       }&child=${people.children}&rooms=${people.rooms}&from=${
         date[0].startDate
@@ -215,7 +215,7 @@ function List() {
         <Row>
           <Col sm={12} md={4} lg={3}>
             <Row>
-              <Col sm={12} className="search_Container mt-4 ml-0 mr-0">
+            <Col sm={12} className="search_Container mt-4 ml-0 mr-0">
                 <h4>{t("Search")}</h4>
                 <div>
                   <p style={{ margin: "2px", marginTop: "15px" }}>
@@ -381,6 +381,7 @@ function List() {
                   adult={people.adult}
                   children={people.children}
                   rooms={people.rooms}
+                  type={urlQueryObj?.type?.toLowerCase()|| false}
                 />
               </Col>
             </Row>
@@ -601,7 +602,9 @@ function List() {
                                           {people.adult ? people.adult : 1}{" "}
                                           {t("adult")}
                                         </p>
-                                        <p className="price_to_show">
+                                        <p 
+                                       className="price_to_show"
+                                        >
                                           <span className="original_Price">
                                             ₹
                                             {eachHotel.price
@@ -622,7 +625,9 @@ function List() {
                                               )
                                             )}
                                           </span>{" "}
-                                          <span className="price_to_show">
+                                          <span 
+                                          //className="price_to_show"
+                                          >
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
                                               width="8"

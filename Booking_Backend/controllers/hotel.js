@@ -120,6 +120,9 @@ const CountBytype = async (req, res, next) => {
     let ResortTypeCount = await HotelModel.countDocuments({
       type: "resort",
     });
+    let FarmHouseTypeCount = await HotelModel.countDocuments({
+      type:'farmhouse'
+    })
     return res.send([
       {
         hotelCount: HotelTypeCount,
@@ -127,6 +130,7 @@ const CountBytype = async (req, res, next) => {
         villaCount: VillaTypeCount,
         cabinCount: CabinTypeCount,
         resortCount: ResortTypeCount,
+        FarmHouseCount:FarmHouseTypeCount
       },
     ]);
   } catch (err) {
@@ -148,8 +152,18 @@ const getByType = async (req, res, next) => {
 const hotelsinCity = async (req, res, next) => {
   let city = req.query.city;
   const daysDiff = parseInt(req.query.daysDiff);
-  let minPrice = parseInt(req.query.min) / daysDiff;
-  let maxPrice = parseInt(req.query.max) / daysDiff;
+
+  console.log(req.query.min ,'req.query.min')
+  console.log(req.query.max ,'req.query.max')
+
+  let minPrice = parseInt(req.query.min)/daysDiff
+  let maxPrice = parseInt(req.query.max)/daysDiff
+ 
+  //minPrice=minPrice+(minPrice*5/100)*daysDiff
+
+  //maxPrice=maxPrice+(maxPrice*5/100)
+
+ 
 
   if (minPrice || maxPrice) {
     try {
@@ -157,7 +171,7 @@ const hotelsinCity = async (req, res, next) => {
         {
           $match: {
             city: city,
-            cheapestPrice: {
+            price: {
               $gte: minPrice || 1000,
               $lte: maxPrice || 4000000,
             },

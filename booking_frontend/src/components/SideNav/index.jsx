@@ -19,9 +19,9 @@ const SideNav = () => {
         >
           {t("Bookings & Trips")}
         </div>
-        <div className="list_item" onClick={() => navigate("MyFavourite")}>
+        {/* <div className="list_item" onClick={() => navigate("MyFavourite")}>
           {t("Favourite")}
-        </div>
+        </div> */}
         <div className="list_item" onClick={() => navigate("Analytics")}>
           {t("Analytics")}
         </div>

@@ -6,6 +6,8 @@ const UserModel = require("../models/users");
 const { BookedHotels } = require("./hotel");
 const HotelModel = require("../models/hotel");
 const RoomsModel = require("../models/room");
+const { validateEmail } = require("./EmailValidator");
+var nodemailer = require("nodemailer");
 
 const saltRounds = 10;
 let bodywithHashedPasw;
@@ -14,6 +16,15 @@ let bodywithHashedPasw;
 
 const createUser = async (req, res, next) => {
   let body = req.body;
+
+
+  let isValidEmal =  await validateEmail(body.email);
+
+  if(!isValidEmal){
+   await sendAlertEmailToAdmin(req.body);
+   next({ message: "Email Doesn't Exist" })
+   return
+  }
 
   let validatingUsername = await userModel.find({ username: body.username });
 
@@ -327,6 +338,45 @@ const uploadprofileimage = async (req, res, next) => {
   return res.send(req.body);
 };
 
+const sendAlertEmailToAdmin = async(user)=>{
+  
+  try{
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "kishorguriti119@gmail.com",
+        pass: "tgrjdzrdscvivzdf",
+      },
+    });
+
+    var mailOptions = {
+      from: "kishorguriti119@gmail.com",
+      to: "kishorguriti119@gmail.com",
+      subject: "User Registration Failed",
+      text: "Email functionality checking",
+      html:`
+      <p>user with name ${user?.username} and with email ${user?.email} failed to register to the hotel booking website
+      please be noted
+      </p>
+      `
+  }
+
+await  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+     console.log(error);
+    } else {
+     console.log("Email sent: " + info.response);
+    }
+  });
+}
+  catch(error){
+console.log(error.message)
+  }
+}
+
+
+
+
 module.exports = {
   createUser,
   updateUser,
@@ -339,5 +389,5 @@ module.exports = {
   getCompletedBookings,
   getUpComingBookings,
   uploadprofileimage,
-  validateUserDetails
+  validateUserDetails,sendAlertEmailToAdmin
 };

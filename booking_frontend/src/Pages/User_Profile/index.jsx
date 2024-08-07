@@ -114,7 +114,7 @@ const User_Profile = ({ setActiveStep, activeStep, steps }) => {
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, margin: 4 }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, }}>
         {!editable ? (
           <Box
             sx={{
@@ -164,7 +164,7 @@ const User_Profile = ({ setActiveStep, activeStep, steps }) => {
           disabled={true}
           sx={{ backgroundColor: !editable ? "#f2f2f2" : "#f2f2f2" }}
         />
-        <TextField
+        {/* <TextField
           label="password"
           id="user_password"
           type="password"
@@ -174,7 +174,7 @@ const User_Profile = ({ setActiveStep, activeStep, steps }) => {
           }
           disabled={true}
           sx={{ backgroundColor: !editable ? "#f2f2f2" : "#f2f2f2" }}
-        />
+        /> */}
       </Box>
 
       <Box

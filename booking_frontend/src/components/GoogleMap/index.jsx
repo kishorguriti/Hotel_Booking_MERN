@@ -25,7 +25,7 @@ const containerStyle = {
 //   // { postiton: { lat: 11.406414, lng: 76.693245 } },
 // ];
 
-const CustomGoogleMaps = ({ destinationCity, adult, children, rooms }) => {
+const CustomGoogleMaps = ({ destinationCity, adult, children, rooms , type }) => {
   const [location, setLocation] = useState(null);
   const [city, setCity] = useState(destinationCity);
   const [markerIndex, setMarkerIndex] = useState(null);
@@ -33,12 +33,35 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms }) => {
   const [markers,setMarkers]=useState([]);
   const [map, setMap] = React.useState(null);
   const [showWindoInfo, setShowWindoInfo] = useState(false);
+  const [allHotelsInCity, setAllHotelsInCity]=useState([])
   const navigatesTo = useNavigate();
   useEffect(() => {
-    getSingleHotel();
-    getHotelsInCity();
+    if(type){
+      getPropertiesBasedOnType()
+    }else{
+      getHotelsInCity();
+    }
+   
   }, []);
 
+
+
+  const getPropertiesBasedOnType = async () => {
+   
+    try {
+      let hotels = await ApiMethods.get("hotels-type", {
+        type:type ,
+      });
+      // setMyData(hotels.data);
+      // setLoading(false);
+      // setSlice(hotels.data.slice(0, 4));
+     
+      setAllHotelsInCity(hotels?.data);
+      await getMarkers(hotels?.data)
+    } catch (err) {
+      console.log(err.message ,'error')
+    }
+  };
 
   useEffect(() => {
     if (map && markers.length > 0) {
@@ -53,10 +76,18 @@ try{
 
 
     //let id = "64a28e07876f1254391f58dc";
-    let hotelinfo = await ApiMethods.get("hotels-find", {}, {}, id);
-    let hotelData = await hotelinfo.data;
+    // let hotelinfo = await ApiMethods.get("hotels-find", {}, {}, id);
+    // let hotelData = await hotelinfo.data;
    // console.log(hotelData ,'hotelData')
-    setFocusedHotel([hotelData]);
+
+
+ let filterdHotel=allHotelsInCity.filter((hotel)=>{
+    return hotel._id == id
+   })
+//console.log(filterdHotel ,'from filter')
+
+
+    setFocusedHotel(filterdHotel);
     // return [hotelinfo.data];
   //console.log(focusedHotel, "focusedHotel");
 }
@@ -71,6 +102,7 @@ catch(error){
         city: destinationCity,
       });
       //console.log(allHotelsInCity.data, "allHotelsInCity google");
+      setAllHotelsInCity(allHotelsInCity.data);
      await getMarkers(allHotelsInCity.data)
     }
     catch(error){
@@ -161,7 +193,7 @@ console.log(error)
                 >
                   <Box >
                     <img
-                      src={focusedHotel[0]?.photos?focusedHotel[0]?.photos[0]:"jjj"} 
+                      src={focusedHotel[0]?.photos?focusedHotel[0]?.photos[0]:""} 
                       alt= {focusedHotel[0]?.name}
                       height={100}
                       width={"100%"}
@@ -171,7 +203,6 @@ console.log(error)
                     className="google-map-hover-boxinfo"
                     style={{
                       margin: "4px",
-
                       gap: "10px",
                     }}
                   >

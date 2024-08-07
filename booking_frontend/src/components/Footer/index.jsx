@@ -6,11 +6,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SubscribeNotify from "../SubscribeNotification";
 
 function Footer() {
   const navigatesTo = useNavigate();
   const [showIcons, setShowIcons] = useState(false);
+  const [subscriberEmail ,setSubscriberEmail ]=useState()
+  const [showNotify ,setShowNotify ] = useState();
+  const [emailError , setEmailError]=useState()
   const { t, i18n } = useTranslation();
+
+
+const handleSubscribenotify =()=>{
+  
+try{
+  if(subscriberEmail.includes('@gmail.com') && subscriberEmail.length>14 ){
+    setShowNotify(true);
+    setEmailError(false)
+  }
+  else{
+    setShowNotify(false)
+    setEmailError(true)
+  }
+
+}
+catch(error){
+return 
+}
+}
+
+
+
 
   return (
     <>
@@ -20,9 +46,10 @@ function Footer() {
           {t("sign up and we'll send the best deals to you")}
         </p>
         <div className="d-flex gap-2">
-          <Form.Control type="email" placeholder="name@example.com" />
-          <Button>{t("Subscribe")}</Button>
+          <Form.Control type="email" placeholder="name@example.com" onChange={(e)=>setSubscriberEmail(e.target.value)} />
+          <Button disabled={!subscriberEmail} onClick={()=>handleSubscribenotify()}>{t("Subscribe")}</Button>
         </div>
+        {emailError && <span style={{color:"red" , fontSize:"12px", alignSelf:"flex-start" , marginTop:"5px"}}>Enter Valid Email</span>}
       </Container>
 
       <Container className="footer-list_item_container">
@@ -147,6 +174,7 @@ function Footer() {
           </div>
         </span>
       </Container>
+      {showNotify && <SubscribeNotify showNotify={showNotify} />}
     </>
   );
 }

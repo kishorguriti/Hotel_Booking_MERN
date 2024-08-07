@@ -27,7 +27,7 @@ export default function MaxWidthDialog() {
         <DialogTitle>T&C</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please ensure that you provide a valid email address so that you can
+            Please ensure that you provide a <b>valid email address</b> so that you can
             receive your booking information promptly. By providing your email
             address, you agree to receive periodic updates about new features,
             special offers, and important information regarding our services.

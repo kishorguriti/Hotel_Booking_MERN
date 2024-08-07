@@ -26,6 +26,6 @@ export const English_Translations = {
     "This star  is provided to Booking.com by the property, andis usually determined by anofficial hotel ratingorganisation or another third party",
   whyDiscoutnText:
     "You’re getting a reduced rate because this property is offering a discount",
- 
-  "Follow us":"అనుసరించండి"
+  "Follow us":"అనుసరించండి",
+  Farmhouse:'Farmhouse'
 };
