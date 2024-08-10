@@ -420,6 +420,7 @@ const sendEmail = async (req, res, next) => {
   let BookedHotelid = req.body.BookedHotelid;
   let userBookingdetails = req.body.userBookingdetails;
   // console.log(userBookingdetails ,'user booking')
+  
   let hotelDetails = req.body.hotelDetails;
   try {
     var transporter = nodemailer.createTransport({
@@ -470,6 +471,10 @@ const sendEmail = async (req, res, next) => {
             flex: 1 1 100%;
 
         }
+            .logo{
+            height:40px;
+            width:40px
+            }
         .header .contact-info {
             flex: 1 1 100%;
            
@@ -524,9 +529,11 @@ const sendEmail = async (req, res, next) => {
         }
         .left {
             text-align: left;
+            
         }
         .right {
             text-align: right;
+            align-self:flex-end
         }
         @media (max-width: 600px) {
             .content {
@@ -542,11 +549,9 @@ const sendEmail = async (req, res, next) => {
             }
             .reservation-details {
                 flex-direction: column;
-                align-items: flex-start;
             }
             .reservation-details span {
                 width: 100%;
-                text-align: left;
             }
             .header {
                 display: block;
@@ -577,21 +582,25 @@ const sendEmail = async (req, res, next) => {
 <body>
     <div class="container" id="reportContent">
         <div class="header">
-            <h1>Booking.com</h1>
+            <h1>
+            Booking.com
+            </h1>
+            
             <div class="contact-info">
                 <p>Confirmation number: 3860300137</p>
                 <p>PIN code: 4591</p>
             </div>
         </div>
         <div class="content">
+        <p>Dear User</p>
             <p>Your booking in <b>${hotelDetails.name}</b> is confirmed</p>
-            <p>Tdp's Kishor Hostel is expecting you on 14 June</p>
-            <p>Your payment will be handled by Tdp's Kishor Hostel. The 'Payment' section below has more details</p>
-            <p>Make changes to your booking or ask the property a question in just a few clicks</p>
+            <span>${hotelDetails.name} is expecting you Check-in on <b>${userBookingdetails.unavailableDates[0]}</b></span>
+            <span>Please find more details in the payment section below</span>
+            <span>Make changes to your booking or ask the property a question in just a few clicks</span>
             <div class="info">
                 <h4>${hotelDetails?.name}</h4>
                 <p>${hotelDetails?.address}</p>
-                <p>Phone: +123456789</p>
+                <p>Phone:${hotelDetails?.OwnerInfo?.ownerContactNo}</p>
                 <div class="map">
                     <img src="${hotelDetails?.photos[0]}" alt="Map 1">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBIfEn6WH8VdKWGPrlajoydjrGs2VHYfuqQ&s" alt="Map 2">
@@ -612,11 +621,11 @@ const sendEmail = async (req, res, next) => {
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Prepayment:</strong></span>
-                    <span class="right">You will be charged a prepayment of the total price at any time.</span>
+                    <span class="right">Done</span>
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Cancellation cost:</strong></span>
-                    <span class="right">From now on: rs 0001</span>
+                    <span class="right"><a href='#'>as per cancellation Policy</a></span>
                 </div>
                <a href="http://localhost:3000/Booking.com/user/naidu/profile/bookings?status=upcoming" class="button" style="color:white;background-color: #FF0000;">Cancel your booking</a>
 
