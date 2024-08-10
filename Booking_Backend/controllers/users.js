@@ -363,14 +363,14 @@ const sendAlertEmailToAdmin = async(user)=>{
 
 await  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-     console.log(error);
+     //console.log(error);
     } else {
-     console.log("Email sent: " + info.response);
+    // console.log("Email sent: " + info.response);
     }
   });
 }
   catch(error){
-console.log(error.message)
+//console.log(error.message)
   }
 }
 

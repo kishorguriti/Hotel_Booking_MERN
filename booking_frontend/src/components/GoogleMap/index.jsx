@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import "./style.css";
 import { assetsIcons } from "../../common/utility";
 import ApiMethods from "../../api/methods";
@@ -63,33 +64,33 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms , type }) =>
     }
   };
 
-  useEffect(() => {
-    if (map && markers.length > 0) {
-      const bounds = new window.google.maps.LatLngBounds();
-      markers.forEach((marker) => bounds.extend(marker.position));
-      map.fitBounds(bounds);
-    }
-  }, [markers, map]);
+
+useEffect(() => {
+  if (map && markers.length > 0) {
+    const bounds = new window.google.maps.LatLngBounds();
+    markers.forEach((marker) => bounds.extend(marker.position));
+    map.fitBounds(bounds);
+
+  //   try {
+  //     const googleMarkers = markers.map(markerData => new window.google.maps.Marker({
+  //       position: markerData.position,
+  //       icon: assetsIcons.map_marker,
+  //     }));
+
+  
+  //  new  MarkerClusterer({ markers: googleMarkers, map });
+  //   } catch (error) {
+  //     console.log(error, 'error');
+  //   }
+   }
+}, [markers, map]);
 
   const getSingleHotel = async (id) => {
 try{
-
-
-    //let id = "64a28e07876f1254391f58dc";
-    // let hotelinfo = await ApiMethods.get("hotels-find", {}, {}, id);
-    // let hotelData = await hotelinfo.data;
-   // console.log(hotelData ,'hotelData')
-
-
  let filterdHotel=allHotelsInCity.filter((hotel)=>{
     return hotel._id == id
    })
-//console.log(filterdHotel ,'from filter')
-
-
     setFocusedHotel(filterdHotel);
-    // return [hotelinfo.data];
-  //console.log(focusedHotel, "focusedHotel");
 }
 catch(error){
   console.log(error)
@@ -101,7 +102,6 @@ catch(error){
       let allHotelsInCity = await ApiMethods.get("hotels-city", {
         city: destinationCity,
       });
-      //console.log(allHotelsInCity.data, "allHotelsInCity google");
       setAllHotelsInCity(allHotelsInCity.data);
      await getMarkers(allHotelsInCity.data)
     }
@@ -117,7 +117,7 @@ let markersInfo= await Promise.all(data.map((each)=>{
   return {position:each.location ,HotelId:each._id }
 }))
 setMarkers(markersInfo)
-//console.log(markersInfo ,'markersInfo')
+
 }
 catch(error){
 console.log(error)
@@ -130,7 +130,6 @@ console.log(error)
   });
 
  
-
   const onLoad = React.useCallback((map) => {
     setMap(map);
   }, []);
@@ -141,13 +140,15 @@ console.log(error)
 
   const handelMrkerHover = (value, markerIndexValue , id) => {
    
-    setMarkerIndex(markerIndexValue);
-    setShowWindoInfo(value);
-   getSingleHotel(id);
-    // console.log(markerIndexValue, value);
+
+  setMarkerIndex(markerIndexValue);
+  setShowWindoInfo(value);
+  getSingleHotel(id);
   };
 
   const handelMrkerClick = () => {
+    console.log(focusedHotel ,'click')
+ 
     navigatesTo(
       `/Booking.com/hotel/${focusedHotel[0].name.replaceAll(" ", "-")}/${
         focusedHotel[0]._id
