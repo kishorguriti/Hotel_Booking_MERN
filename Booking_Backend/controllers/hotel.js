@@ -140,7 +140,7 @@ const CountBytype = async (req, res, next) => {
 
 const getByType = async (req, res, next) => {
   let requestedType = req.query.type;
-
+  
   try {
     let hotels = await HotelModel.find({ type: requestedType });
     return res.send(hotels);

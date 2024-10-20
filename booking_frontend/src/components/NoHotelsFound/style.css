@@ -5,6 +5,7 @@
   height: 50vh;
   flex-direction: column;
   gap: 14px;
+  margin-top: 20px;
 }
 
 .search_result_titl {
