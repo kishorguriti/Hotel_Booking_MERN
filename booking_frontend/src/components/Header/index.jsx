@@ -109,7 +109,7 @@ const Header = ({ type }) => {
     }
 
     navigatesTo(
-      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination.toLowerCase()}&type=''&adult=${
+      `/Booking.com/hotels?searchresults.en-gb.html?&city=${destination.toLowerCase()}&adult=${
         people.adult
       }&child=${people.children}&rooms=${people.rooms}&from=${
         date[0].startDate

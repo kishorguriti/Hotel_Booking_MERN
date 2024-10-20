@@ -24,7 +24,7 @@ const Bookings = () => {
   function onCompleted(status) {
     setSelectedTab(status);
     setLoading(true);
-    navigatesTo(`/Booking.com/user/naidu/profile/bookings?status=completed`);
+    navigatesTo(`/Booking.com/user/${loginUser.name}/profile/bookings?status=completed`);
   }
 
   function onUpcoming(status) {

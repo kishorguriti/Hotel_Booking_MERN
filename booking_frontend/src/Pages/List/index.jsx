@@ -375,14 +375,15 @@ function List() {
                   </button>
                 </div>
               </Col>
-              <Col sm={12}>
+              <Col sm={12} >
+             
                 <CustomGooglMaps
                   destinationCity={destination}
                   adult={people.adult}
                   children={people.children}
                   rooms={people.rooms}
                   type={urlQueryObj?.type?.toLowerCase()|| false}
-                />
+                /> 
               </Col>
             </Row>
           </Col>
@@ -391,7 +392,9 @@ function List() {
             <>
               {Mydata.length === 0 ? (
                 <Col ref={NolistRef} tabIndex="-1">
+               
                   <NoHotelsFound city={destination} />
+                  
                 </Col>
               ) : (
                 <Col sm={12} md={8} lg={9} ref={listRef} tabIndex="-1">
