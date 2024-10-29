@@ -124,6 +124,14 @@
   border: 1.5px solid gold;
 }
 
+.col div {
+  height: max-content !important;
+}
+
+.rdrDateDisplay{
+  height: max-content !important;
+}
+
 .SelectingPeople {
   position: absolute;
   bottom: -126px;
@@ -385,6 +393,7 @@
   .rdrCalendarWrapper {
     color: #000000;
     font-size: 11px !important;
+    height: max-content !important;
   }
 
   .datePicker {

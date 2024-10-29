@@ -230,7 +230,7 @@ catch(error){
         <Row>
           <Col>
             {showCalender && (
-              <div className="date_range_modify">
+               <div className="date_range_modify">
                 <DateRange
                   editableDateInputs={true}
                   onChange={(item) => setDate([item.selection])}

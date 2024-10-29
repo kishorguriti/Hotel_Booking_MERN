@@ -419,6 +419,7 @@ const bookRoom = async (req, res, next) => {
 const sendEmail = async (req, res, next) => {
   let BookedHotelid = req.body.BookedHotelid;
   let userBookingdetails = req.body.userBookingdetails;
+  let userDetailsObj = req.body.userDetails
   // console.log(userBookingdetails ,'user booking')
   
   let hotelDetails = req.body.hotelDetails;
@@ -433,7 +434,7 @@ const sendEmail = async (req, res, next) => {
 
     var mailOptions = {
       from: '"Booking.com" <kishorguriti119@gmail.com>',
-      to: "kishior.guriti@motivitylabs.com",
+      to: `${userDetailsObj?.email}`,
       subject: "Booking Successful",
       text: "Email functionality checking",
       html: `<!DOCTYPE html>
@@ -627,7 +628,7 @@ const sendEmail = async (req, res, next) => {
                     <span class="left"><strong>Cancellation cost:</strong></span>
                     <span class="right"><a href='#'>as per cancellation Policy</a></span>
                 </div>
-               <a href="http://localhost:3000/Booking.com/user/naidu/profile/bookings?status=upcoming" class="button" style="color:white;background-color: #FF0000;">Cancel your booking</a>
+               <a href="http://localhost:3000/Booking.com/user/${userDetailsObj.username}/profile/bookings?status=upcoming" class="button" style="color:white;background-color: #FF0000;">Cancel your booking</a>
 
                 <p style="color: #FF0000;">This booking is non-refundable. Changing the dates of your stay is not possible.</p>
             </div>

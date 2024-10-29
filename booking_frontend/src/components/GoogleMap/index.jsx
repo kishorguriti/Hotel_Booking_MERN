@@ -36,6 +36,45 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms, type }) => 
     googleMapsApiKey: "AIzaSyAE524bGGtiXGw_n4Os0ho297JcpZN2cF4",
   });
 
+  useEffect(() => {
+    if (map && markers.length > 0) {
+      const bounds = new window.google.maps.LatLngBounds();
+      markers.forEach((marker) => bounds.extend(marker.position));
+      map.fitBounds(bounds);
+    }
+  }, [markers, map]);
+
+ 
+  useEffect(() => {
+    if (!map) return;
+    if (!clusterRef.current) {
+      clusterRef.current = new MarkerClusterer({ map });
+    }
+  }, [map]);
+
+  useEffect(() => {
+    if (clusterRef.current) {
+      clusterRef.current.clearMarkers();
+      const markerInstances = markers.map((markerData) => {
+        const marker = new window.google.maps.Marker({
+          position: markerData.position,
+          icon: assetsIcons.map_marker,
+        });
+  
+        
+        marker.addListener("click", () => handleMarkerClick(markerData.HotelId));
+        marker.addListener('dblclick' ,() => handleMarkerClick(markerData.HotelId))
+        marker.addListener("mouseover", () =>
+          handleMarkerHover(true, markers.indexOf(markerData), markerData.HotelId)
+        );
+        marker.addListener("mouseout", () => handleMarkerHover(false, null));
+        return marker;
+      });
+
+      clusterRef.current.addMarkers(markerInstances);
+    }
+  }, [markers]);
+
   const getPropertiesBasedOnType = async () => {
     try {
       let hotels = await ApiMethods.get("hotels-type", { type });
@@ -72,46 +111,7 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms, type }) => 
     }
   };
 
-  useEffect(() => {
-    if (map && markers.length > 0) {
-      const bounds = new window.google.maps.LatLngBounds();
-      markers.forEach((marker) => bounds.extend(marker.position));
-      map.fitBounds(bounds);
-    }
-  }, [markers, map]);
-
-  // Initialize MarkerClusterer
-  useEffect(() => {
-    if (!map) return;
-    if (!clusterRef.current) {
-      clusterRef.current = new MarkerClusterer({ map });
-    }
-  }, [map]);
-
-  useEffect(() => {
-    if (clusterRef.current) {
-      clusterRef.current.clearMarkers();
-      const markerInstances = markers.map((markerData) => {
-        const marker = new window.google.maps.Marker({
-          position: markerData.position,
-          icon: assetsIcons.map_marker,
-        });
-  
-        
-        marker.addListener("click", () => handleMarkerClick(markerData.HotelId));
-        marker.addListener("mouseover", () =>
-          handleMarkerHover(true, markers.indexOf(markerData), markerData.HotelId)
-        );
-        marker.addListener("mouseout", () => handleMarkerHover(false, null));
-        return marker;
-      });
-  
-      
-  
-      // Add the markers to the MarkerClusterer
-      clusterRef.current.addMarkers(markerInstances);
-    }
-  }, [markers]);
+ 
   
 
   const getSingleHotel = async (id) => {
@@ -152,9 +152,9 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms, type }) => 
             key={index}
             position={marker.position}
             icon={assetsIcons.map_marker}
-            onClick={() => handleMarkerClick(marker.HotelId)}
-            onMouseOver={() => handleMarkerHover(true, index, marker.HotelId)}
-            onMouseOut={() => handleMarkerHover(false, null)}
+            // onClick={() => handleMarkerClick(marker.HotelId)}
+            // onMouseOver={() => handleMarkerHover(true, index, marker.HotelId)}
+            // onMouseOut={() => handleMarkerHover(false, null)}
           >
             {showWindoInfo && markerIndex === index && (
               <InfoWindow onCloseClick={() => setShowWindoInfo(false)}>
