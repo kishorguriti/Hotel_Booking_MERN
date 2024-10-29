@@ -96,6 +96,20 @@
   border-color: #003580 !important;
 }
 
+
+
+.rooms_Container::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: lightgray;
+}
+
+.rooms_Container::-webkit-scrollbar-thumb {
+  background-color: gray; 
+  border-radius: 10px; 
+}
+
+
 .checkbox-style {
   display: flex;
   flex-direction: column;

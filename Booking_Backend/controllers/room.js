@@ -420,8 +420,9 @@ const sendEmail = async (req, res, next) => {
   let BookedHotelid = req.body.BookedHotelid;
   let userBookingdetails = req.body.userBookingdetails;
   let userDetailsObj = req.body.userDetails
-  // console.log(userBookingdetails ,'user booking')
-  
+   //console.log(userBookingdetails ,'user booking')
+
+  let unqNum= uuidv4().replace(/\D/g, '').slice(0,12);
   let hotelDetails = req.body.hotelDetails;
   try {
     var transporter = nodemailer.createTransport({
@@ -588,12 +589,12 @@ const sendEmail = async (req, res, next) => {
             </h1>
             
             <div class="contact-info">
-                <p>Confirmation number: 3860300137</p>
+                <p>Confirmation number: ${unqNum}</p>
                 <p>PIN code: 4591</p>
             </div>
         </div>
         <div class="content">
-        <p>Dear User</p>
+        <p>Dear ${userDetailsObj.username}</p>
             <p>Your booking in <b>${hotelDetails.name}</b> is confirmed</p>
             <span>${hotelDetails.name} is expecting you Check-in on <b>${userBookingdetails.unavailableDates[0]}</b></span>
             <span>Please find more details in the payment section below</span>
