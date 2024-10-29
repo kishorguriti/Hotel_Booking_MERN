@@ -3,7 +3,7 @@ var HotelModel = require("../models/hotel");
 var nodemailer = require("nodemailer");
 const UserModel = require("../models/users");
 const { v4: uuidv4 } = require("uuid");
-const Handlebars = require('handlebars');
+const Handlebars = require("handlebars");
 
 const CreateNewRoom = async (req, res, next) => {
   const roomdetails = req.body;
@@ -213,216 +213,13 @@ const bookRoom = async (req, res, next) => {
   }
 };
 
-
-
-
-
-// const sendEmail = async (req, res, next) => {
-//   const { BookedHotelid, userBookingdetails, hotelDetails } = req.body;
-
-//   try {
-//     const transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: 'kishorguriti119@gmail.com',
-//         pass: 'tgrjdzrdscvivzdf',
-//       },
-//     });
-
-//     // Sample data with 7 rows and 7 columns
-//     const data = {
-//       headers: Array.from({ length: 10 }, (_, i) => `Field ${i + 1}`),
-//       customers: Array.from({ length: 10 }, (_, i) => {
-//         const row = {};
-//         for (let j = 1; j <= 10; j++) {
-//           row[`field${j}`] = `Data${j}_${i + 1}`;
-//         }
-//         return row;
-//       }),
-//     };
-
-//     const templateSource = `
-//     <!DOCTYPE html>
-//     <html lang="en">
-//     <head>
-//         <meta charset="UTF-8">
-//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//         <title>CRM Status Email</title>
-//         <style>
-//         body {
-//           font-family: Arial, sans-serif;
-//         }
-
-//        .card-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-bottom: 20px;
-//   gap:10px;
-// }
-
-// .card {
-//   border: 1px solid #dddddd;
-//   border-radius: 5px;
-//   padding: 10px;
-//   width: 200px;
-//   min-width:200px;
-//   height: 80px;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-//   margin-right: 10px; 
-//   margin-bottom: 10px; 
-// }
-       
-
-//         .card h2 {
-//           font-size: 18px;
-//           margin-bottom: 10px;
-//         }
-
-//         .card p {
-//           font-size: 24px;
-//           font-weight: bold;
-//           margin: 0;
-//         }
-
-//         .table-container {
-//           width: 100%;
-//         }
-
-//         table {
-//           width: 90%;
-//            overflow-x: auto;
-//           border-collapse: collapse;
-//           min-width: 800px;
-//         }
-
-//         th, td {
-//           padding: 5px;
-//           border: 1px solid #dddddd;
-//           text-align: left;
-//           white-space: nowrap;
-//         }
-
-//         th {
-//           background-color: #f2f2f2;
-//         }
-
-//         @media (max-width: 600px) {
-//           .table {
-//             overflow-x: auto;
-//             -webkit-overflow-scrolling: touch;
-//             width:90%
-//           }
-
-//           table-container {
-//             width: 100%;
-//           }
-//         }
-//         </style>
-//     </head>
-//     <body>
-//         <h1>CRM Status Report</h1>
-//         <div class="card-container">
-//           <div class="card" style="background-color: #DCFCE7">
-//             <h2>Clients</h2>
-//             <p>230</p>
-//           </div>
-//           <div class="card" style="background-color: #FFE2E5">
-//             <h2>Campaigns</h2>
-//             <p>200</p>
-//           </div>
-//           <div class="card" style="background-color: #FFF4DE">
-//             <h2>Card 4</h2>
-//             <p>47</p>
-//           </div>
-//         </div>
-//         <div class="table-container">
-//           <table>
-//             <thead>
-//               <tr>
-//                 {{#each headers}}
-//                 <th>{{this}}</th>
-//                 {{/each}}
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {{#each customers}}
-//               <tr>
-//                 {{#each this}}
-//                 <td>{{this}}</td>
-//                 {{/each}}
-//               </tr>
-//               {{/each}}
-//             </tbody>
-//           </table>
-//         </div>
-// <h1 style="margin-bottom:20px">BDM Report</h1>
-//         <div class="table-container">
-//           <table>
-//             <thead>
-//               <tr>
-//                 {{#each headers}}
-//                 <th>{{this}}</th>
-//                 {{/each}}
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {{#each customers}}
-//               <tr>
-//                 {{#each this}}
-//                 <td>{{this}}</td>
-//                 {{/each}}
-//               </tr>
-//               {{/each}}
-//             </tbody>
-//           </table>
-//         </div>
-//     </body>
-//     </html>
-//     `;
-
-//     // Compile the template
-//     const template = Handlebars.compile(templateSource);
-//     const htmlContent = template(data);  // this data should contain empReports and BdmReports
-
-//     const mailOptions = {
-//       from: 'Rajeshnasina123@gmail.com',
-//       to: 'kishorguriti119@gmail.com',
-//       subject: 'Booking Successful',
-//       text: 'Email functionality checking',
-//       html: htmlContent,
-//     };
-
-//     transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//         console.log(error);
-//         res.status(500).send(error.toString());
-//       } else {
-//         console.log('Email sent: ' + info.response);
-//         res.status(200).send('Email sent: ' + info.response);
-//       }
-//     });
-//   } catch (err) {
-//     next(err);
-//     console.log(err);
-//   }
-// };
-
-
-
-
-
-
-
-
-
-//---------------------------------------------------------- original ------------------------------------------------
 const sendEmail = async (req, res, next) => {
   let BookedHotelid = req.body.BookedHotelid;
   let userBookingdetails = req.body.userBookingdetails;
-  let userDetailsObj = req.body.userDetails
-   //console.log(userBookingdetails ,'user booking')
+  let userDetailsObj = req.body.userDetails;
+  //console.log(userBookingdetails ,'user booking')
 
-  let unqNum= uuidv4().replace(/\D/g, '').slice(0,12);
+  let unqNum = uuidv4().replace(/\D/g, "").slice(0, 12);
   let hotelDetails = req.body.hotelDetails;
   try {
     var transporter = nodemailer.createTransport({
@@ -596,7 +393,9 @@ const sendEmail = async (req, res, next) => {
         <div class="content">
         <p>Dear ${userDetailsObj.username}</p>
             <p>Your booking in <b>${hotelDetails.name}</b> is confirmed</p>
-            <span>${hotelDetails.name} is expecting you Check-in on <b>${userBookingdetails.unavailableDates[0]}</b></span>
+            <span>${hotelDetails.name} is expecting you Check-in on <b>${
+        userBookingdetails.unavailableDates[0]
+      }</b></span>
             <span>Please find more details in the payment section below</span>
             <span>Make changes to your booking or ask the property a question in just a few clicks</span>
             <div class="info">
@@ -615,11 +414,17 @@ const sendEmail = async (req, res, next) => {
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Check-in:</strong></span>
-                    <span class="right">${userBookingdetails.unavailableDates[0]}</span>
+                    <span class="right">${
+                      userBookingdetails.unavailableDates[0]
+                    }</span>
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Check-out:</strong></span>
-                    <span class="right">${userBookingdetails.unavailableDates[userBookingdetails.unavailableDates.length - 1]}</span>
+                    <span class="right">${
+                      userBookingdetails.unavailableDates[
+                        userBookingdetails.unavailableDates.length - 1
+                      ]
+                    }</span>
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Prepayment:</strong></span>
@@ -629,7 +434,9 @@ const sendEmail = async (req, res, next) => {
                     <span class="left"><strong>Cancellation cost:</strong></span>
                     <span class="right"><a href='#'>as per cancellation Policy</a></span>
                 </div>
-               <a href="http://localhost:3000/Booking.com/user/${userDetailsObj.username}/profile/bookings?status=upcoming" class="button" style="color:white;background-color: #FF0000;">Cancel your booking</a>
+               <a href="http://localhost:3000/Booking.com/user/${
+                 userDetailsObj.username
+               }/profile/bookings?status=upcoming" class="button" style="color:white;background-color: #FF0000;">Cancel your booking</a>
 
                 <p style="color: #FF0000;">This booking is non-refundable. Changing the dates of your stay is not possible.</p>
             </div>
@@ -656,7 +463,7 @@ const sendEmail = async (req, res, next) => {
         });
     </script>
 </body>
-</html>`
+</html>`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -664,7 +471,6 @@ const sendEmail = async (req, res, next) => {
         console.log(error);
         res.status(500).send(error.toString());
       } else {
-       
         // res.status(200).send("Email sent: " + info.response);
       }
     });
@@ -674,284 +480,7 @@ const sendEmail = async (req, res, next) => {
   }
 };
 
-
-
-
-
-
-
-// const sendEmail = async (req, res, next) => {
-//   let BookedHotelid = req.body.BookedHotelid;
-//   let userBookingdetails = req.body.userBookingdetails;
-//   let hotelDetails = req.body.hotelDetails;
-//   let userDetails = req.body.userDetails;
-//   let userEmail = req.body.userDetails.email;
-//   try {
-//     var transporter = nodemailer.createTransport({
-//       service: "gmail",
-//       auth: {
-//         user: "kishorguriti119@gmail.com",
-//         pass: "tgrjdzrdscvivzdf",
-//       },
-//     });
-
-//     const downloadHtml = `<!DOCTYPE html>
-// <html>
-// <head>
-//     <title>Download HTML as PDF</title>
-//     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-//     <style>
-//         body {
-//             font-family: Arial, sans-serif;
-//             background-color: #f4f4f4;
-//             color: #333;
-//         }
-//         .container {
-//             width: 80%;
-//             margin: 0 auto;
-//             background-color: #fff;
-//             padding: 20px;
-//             border-radius: 10px;
-//             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-//         }
-//         .header {
-//             text-align: center;
-//             padding: 10px 0;
-//             background-color: #007BFF;
-//             color: #fff;
-//             border-radius: 10px 10px 0 0;
-//         }
-//         .content {
-//             padding: 20px;
-//         }
-//         .footer {
-//             text-align: center;
-//             padding: 10px 0;
-//             background-color: #007BFF;
-//             color: #fff;
-//             border-radius: 0 0 10px 10px;
-//         }
-//     </style>
-// </head>
-// <body>
-//     <div class="container" id="content">
-//         <div class="header">
-//             <h1>Welcome to Our Service</h1>
-//         </div>
-//         <div class="content">
-//             <p>Hello,</p>
-//             <p>Thank you for joining our service. We're excited to have you on board!</p>
-//             <p>If you have any questions, feel free to contact us at any time.</p>
-//         </div>
-//         <div class="footer">
-//             <p>&copy; 2024 Our Company</p>
-//         </div>
-//     </div>
-//     <button onclick="downloadPDF()">Download as PDF</button>
-
-//     <script>
-//         function downloadPDF() {
-//             const { jsPDF } = window.jspdf;
-//             const doc = new jsPDF();
-
-//             // Source HTMLElement or a string containing HTML.
-//             const content = document.getElementById('content');
-            
-//             doc.html(content, {
-//                 callback: function (doc) {
-//                     doc.save('content.pdf');
-//                 },
-//                 x: 10,
-//                 y: 10
-//             });
-//         }
-//     </script>
-// </body>
-// </html>
-// `;
-
-//     const logourl = `https://pbs.twimg.com/profile_images/1323220178574938113/SZK83dEL_400x400.jpg`;
-//     //const logourl = `https://fineproxy.org/wp-content/uploads/2023/09/Booking.com-logo-2-2048x1152.png`;
-//     const logoTitle = `https://lando.stay22.com/hs-fs/hubfs/2560px-Booking.com_logo.svg.png?width=2000&name=2560px-Booking.com_logo.svg.png`;
-
-//     const htmlContent = `<!DOCTYPE html>
-// <html lang="en">
-//   <head>
-//     <meta charset="UTF-8" />
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//     <title>Document</title>
-//     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-//     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-//     <style>
-//       body {
-//         background-color: #f4f4f4;
-//         height: 100vh;
-//         padding: 8px;
-//         display: flex;
-//         flex-direction: column;
-//         font-family: Arial, sans-serif;
-//       }
-//       .Navbar {
-//         display: flex;
-//         flex-direction: row;
-//         background-color: #007bff;
-//         height: 70px;
-//         padding: 10px;
-//         border-radius: 10px 10px 0 0;
-//         gap: 25px;
-//       }
-//       .logo{
-//         margin-right:8px;
-//       }
-//       .logo-title {
-//         margin-top: 20px;
-//         color: #fff;
-//         font-size: 20px;
-//         font-weight: bold;
-//         align-self: flex-end;
-//       }
-
-//       .content {
-//         width: 99%;
-//         flex-wrap: wrap;
-//         height:100% ;
-//         margin: 8px;
-//       }
-
-//       .greeting {
-//         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-//         max-width: 100%;
-//         flex-wrap: wrap;
-//       }
-//       .booking-details {
-//         font-size: 14px;
-//       }
-//       .addinal-info {
-//         max-width: 100%;
-//         flex-wrap: wrap;
-//         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-//       }
-
-//       .best-regards {
-//         font-size: 12px;
-//       }
-
-//       .footer {
-//         flex: 1;
-//         text-align: center;
-//         padding: 10px 0;
-//         background-color: #007bff;
-//         color: #fff;
-//         border-radius: 0 0 10px 10px;
-//       }
-//     </style>
-//   </head>
-//   <body>
-//   <div id='download'>
-//       <div class="Navbar">
-//       <img src="${logourl}" alt="logo" height="60px" width="45px" class='logo' />
-//        <img src='${logoTitle}' alt='title' height="40px" width="150px" class='logo-title' />
-//       </div>
-//       <div class="content">
-//         <p class="greeting">
-//           Dear User ${userDetails.username},<br />
-//           Thank you for booking with <a href="'" target="_blank">www.booking.com</a>. We are thrilled to confirm your reservation at -Hotel Name-. Below are the details of your booking:
-//         </p>
-//         <pre class="booking-details">         
-// <b>Booking Details:</b>
-
-// Guest Name: ${userDetails.username}
-// Hotel Name: ${hotelDetails.name}
-// Check-in Date:  ${userBookingdetails.unavailableDates[0]}
-// Check-out Date: ${
-//       userBookingdetails.unavailableDates[
-//         userBookingdetails.unavailableDates.length - 1
-//       ]
-//     }
-// Room Type: [Room Type]
-// Number of Guests: [Number of Guests]
-// Booking Reference: [Booking Reference Number]
-
-// <b>Hotel Address:</b>
-// ${hotelDetails.name}
-// ${hotelDetails.address}
-           
-// <b>Additional Information:</b>
-
-// Check-in Time:  ${userBookingdetails.unavailableDates[0]} 12:00 AM
-// Check-out Time: ${
-//       userBookingdetails.unavailableDates[
-//         userBookingdetails.unavailableDates.length - 1
-//       ]
-//     } 11:59 PM
-// Hotel Contact Number: 8985836812
-// Hotel Email: ${hotelDetails.name}@gmail.com
-//         </pre>
-//         <p class="additional-info">
-//           If you have any questions or need further assistance, please do not
-//           hesitate to contact us at bookingsupport@gmail.com or call us
-//           at 8985836812. We look forward to
-//           welcoming you and ensuring you have a comfortable and enjoyable
-//           stay. Thank you for choosing <b>Booking.com</b>.
-//         </p>
-// <pre>
-
-// <button onclick="downloadPDF()">downloadPDF</button>
-// </pre>
-//         <p class="best-regards">
-//           Best regards,<br />
-//           Kishor Guriti,<br />
-//           Associate Software Engineer,<br />
-//           8985836812.<br />
-//           <a href="'">www.booking.com</a>
-//         </p>
-//       </div>
-//       <div class="footer">
-//         Visit us at <a href="" target="_blank">www.booking.com</a>
-//       </div>
-   
-//     </div>
-//     <script>
-//         function downloadPDF() {
-//           function downloadPDF() {
-//             html2canvas(document.getElementById('download')).then(canvas => {
-//                 const imgData = canvas.toDataURL('image/png');
-//                 const imgWidth = 210; // A4 size width in mm
-//                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        
-//                 const doc = new jsPDF('p', 'mm', 'a4');
-//                 let position = 0;
-        
-//                 doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-//                 doc.save('booking_details.pdf');
-//             });
-//         }
-        
-//     </script>
-//   </body>
-// </html>`;
-
-//     var mailOptions = {
-//       from: "Rajeshnasina123@gmail.com",
-//       to: `${userEmail}`,
-//       subject: "Booking Successful",
-//       text: "Email functionality checking",
-//       html: htmlContent,
-//     };
-
-//     transporter.sendMail(mailOptions, function (error, info) {
-//       if (error) {
-//       } else {
-//         //console.log("Email sent: " + info.response);
-//       }
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
 const cancelRoom = async (req, res, next) => {
-  console.log('triggered')
   let bookingObj = {
     number: req.body.number,
     unavailableDates: req.body.unavailableDates,
@@ -996,10 +525,10 @@ const cancelRoom = async (req, res, next) => {
     await allUsersAfterUpdate.save();
 
     await hotel.save();
-    console.log('try')
+    console.log("try");
     return res.send({ result: "succuss" });
   } catch (err) {
-    console.log('err')
+    console.log("err");
     return res.send(err);
   }
 };
