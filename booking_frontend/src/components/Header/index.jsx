@@ -38,28 +38,28 @@ const Header = ({ type }) => {
       target: "body",
     },
     {
-      content: <h6>Enter city</h6>,
+      content: <h6>Destination city</h6>,
       placement: "bottom",
       target: "#city",
       title: "",
     },
     {
-      content: <h6>select dates</h6>,
+      content: <h6>Select Trip Dates</h6>,
       placement: "bottom",
       target: "#calender",
       title: "",
     },
     {
-      content: <h6>select People</h6>,
+      content: <h6>Select People</h6>,
       placement: "bottom",
       target: "#people",
       title: "",
     },
     {
-      content: <h6>click to search</h6>,
+      content: <h6>Click to Explore</h6>,
       placement: "bottom",
       target: "#search",
-      title: "Search",
+      title: "",
       locale: { last: "Finish" },
     },
   ]);

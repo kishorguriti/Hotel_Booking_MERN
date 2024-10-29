@@ -26,11 +26,17 @@ const Featured = () => {
   };
 
   const getValue = (city) => {
+try{
+
     if (hotelCountInCityData && hotelCountInCityData.length !== 0) {
       let result = hotelCountInCityData?.filter((each) => each.label === city);
       return result && result[0] && result[0].value ? result[0].value : 5;
     }
     return 5;
+  }
+  catch(error){
+    console.log(error)
+  }
   };
 
   const handleCityClick = (city) => {

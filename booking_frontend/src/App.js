@@ -24,23 +24,24 @@ function App() {
     <I18nextProvider i18n={i18n}>
       <BrowserRouter>
         <Routes>
+        <Route path="/" index element={<Home />} />
           <Route path="/Booking.com" index element={<Home />} />
           {/* <Route path="/Booking.com/stays" element={<List />} /> */}
           <Route
             path="/Booking.com/flights"
-            element={<UnderProgressComponetn />}
+            element={<UnderProgressComponetn page='flights' />}
           />
           <Route
             path="/Booking.com/car-rentals"
-            element={<UnderProgressComponetn />}
+            element={<UnderProgressComponetn page='car-rentals' />}
           />
           <Route
             path="/Booking.com/attractions"
-            element={<UnderProgressComponetn />}
+            element={<UnderProgressComponetn  page='attractions'/>}
           />
           <Route
             path="/Booking.com/airport-taxis"
-            element={<UnderProgressComponetn />}
+            element={<UnderProgressComponetn  page='airport-taxis'/>}
           />
           <Route path="/Booking.com/hotels" element={<List />} />
           <Route path="/Booking.com/hotels/type" element={<List />} />

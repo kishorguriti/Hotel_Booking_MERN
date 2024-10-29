@@ -91,9 +91,14 @@ const Bookings = () => {
   };
 
 const getUserInfo = async()=>{
+  try{
   let res = await ApiMethods.get("users", {}, {}, loginUser._id);
   let hotels = await GetAllHotel(res.data);
   await getdataBasedOnStatus(hotels);
+  }
+  catch(err){
+    navigatesTo('/booking.com')
+  }
 }
 
 
