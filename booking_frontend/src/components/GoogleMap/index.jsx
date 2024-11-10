@@ -129,9 +129,14 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms, type }) => 
     getSingleHotel(id);
   };
 
-  const handleMarkerClick = () => {
-    if (focusedHotel[0]) {
-      const hotel = focusedHotel[0];
+  const handleMarkerClick = (hotelId) => {
+    // console.log(markerData , 'markerData')
+    // console.log(allHotelsInCity ,'allHotelsInCity')
+
+let hotel = allHotelsInCity.find((each)=>each._id==hotelId);
+// console.log(hotel ,'hotel')
+
+    if (hotel) {
       navigate(
         `/Booking.com/hotel/${hotel.name.replaceAll(" ", "-")}/${hotel._id}?city=${destinationCity}&adult=${adult}&rooms=${rooms}&price=${hotel.price}`
       );
@@ -152,9 +157,9 @@ const CustomGoogleMaps = ({ destinationCity, adult, children, rooms, type }) => 
             key={index}
             position={marker.position}
             icon={assetsIcons.map_marker}
-            // onClick={() => handleMarkerClick(marker.HotelId)}
-            // onMouseOver={() => handleMarkerHover(true, index, marker.HotelId)}
-            // onMouseOut={() => handleMarkerHover(false, null)}
+            onClick={() => handleMarkerClick(marker.HotelId)}
+             onMouseOver={() => handleMarkerHover(true, index, marker.HotelId)}
+             onMouseOut={() => handleMarkerHover(false, null)}
           >
             {showWindoInfo && markerIndex === index && (
               <InfoWindow onCloseClick={() => setShowWindoInfo(false)}>

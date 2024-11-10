@@ -94,6 +94,7 @@ function Hotel() {
       
  let newData =  await ApiMethods.get('hotels-find', {} , {} , id)
       setSingleHotel(newData.data);
+      // console.log(singleHotel ,'setSingleHotel')
       setHotelPhotos(newData.data.photos); // it needs to be changed photos
       setLoading(false);
     } catch (error) {
@@ -343,23 +344,23 @@ return
                   Located in the real heart of Krakow, this property has an
                   excellent location score of 9.8!
                 </span>
-                <h4>
+                {urlQueryObj.price &&<h4>
                   <b>
                     ₹
                     {daysDiff > 0
-                      ? parseInt(urlQueryObj.price).toLocaleString("en-IN")
-                      : customerPricePerNight}
+                      ?  parseInt(urlQueryObj.price).toLocaleString("en-IN")
+                      : customerPricePerNight }
                   </b>{" "}
                   (
                   {daysDiff > 1 ? (
                     <span>
-                      {daysDiff} nights-{roomsCount} rooms
+                      {daysDiff} nights-{roomsCount|| 1} rooms
                     </span>
                   ) : (
                     <span>1 night-{roomsCount} rooms</span>
                   )}
                   )
-                </h4>
+                </h4>}
                 <button onClick={onBookNow}>{t("Reserve or Book Now!")}</button>
               </div>
             </Col>

@@ -387,11 +387,10 @@ const sendEmail = async (req, res, next) => {
             
             <div class="contact-info">
                 <p>Confirmation number: ${unqNum}</p>
-                <p>PIN code: 4591</p>
             </div>
         </div>
         <div class="content">
-        <p>Dear ${userDetailsObj.username}</p>
+        <p>Hi, ${userDetailsObj.username},</p>
             <p>Your booking in <b>${hotelDetails.name}</b> is confirmed</p>
             <span>${hotelDetails.name} is expecting you Check-in on <b>${
         userBookingdetails.unavailableDates[0]
@@ -403,14 +402,14 @@ const sendEmail = async (req, res, next) => {
                 <p>${hotelDetails?.address}</p>
                 <p>Phone:${hotelDetails?.OwnerInfo?.ownerContactNo}</p>
                 <div class="map">
-                    <img src="${hotelDetails?.photos[0]}" alt="Map 1">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBIfEn6WH8VdKWGPrlajoydjrGs2VHYfuqQ&s" alt="Map 2">
+                    <img src="${hotelDetails?.photos[0]}" alt="${hotelDetails?.name}">
+                    <img src="${hotelDetails?.photos[1]}" alt="${hotelDetails?.name}">
                 </div>
             </div>
             <div class="info">
                 <div class="reservation-details">
                     <span class="left"><strong>Your reservation:</strong></span>
-                    <span class="right">1 night, 1 dormitory bed</span>
+                    <span class="right">1 night,</span>
                 </div>
                 <div class="reservation-details">
                     <span class="left"><strong>Check-in:</strong></span>
